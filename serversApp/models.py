@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Server(models.Model):
     """
-    服务器SN、工号等信息
+    测试前提交的服务器SN、工号等信息
     """
     sn = models.CharField(max_length=30, verbose_name="服务器SN")
     worker = models.CharField(max_length=10, verbose_name="工号")

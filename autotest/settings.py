@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'serversApp',                  # 服务器信息
     'informationApp',              # 基本配置校对
     'stressApp',                   # 压力测试
