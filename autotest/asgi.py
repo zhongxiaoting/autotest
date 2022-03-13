@@ -13,4 +13,22 @@ from django.core.asgi import get_asgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'autotest.settings')
 
-application = get_asgi_application()
+
+# application = get_asgi_application()
+
+
+
+from channels.routing import ProtocolTypeRouter, URLRouter  #channels
+from channels.auth import AuthMiddlewareStack
+import finalApp.routing    #我们创建的app
+
+
+application = ProtocolTypeRouter({
+    # "http": get_asgi_application(), #此处会影响http请求。此处大概时异步接管HTTP的意思
+
+    "websocket": AuthMiddlewareStack(
+        URLRouter(
+            finalApp.routing.websocket_urlpatterns
+        )
+    ),
+})

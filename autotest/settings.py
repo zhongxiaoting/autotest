@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'informationApp',              # 基本配置校对
     'stressApp',                   # 压力测试
     'finalApp',                    # 黑名单检查
+    'channels',
 
 ]
 
@@ -134,3 +135,12 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#channels
+ASGI_APPLICATION = "autotest.asgi.application"    #入口信息
+CHANNEL_LAYERS = {    #频道后端，这里采用内存存储，默认是redis
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
+
