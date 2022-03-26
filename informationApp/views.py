@@ -30,8 +30,8 @@ def cpu_mce_check(request):
     cpu_mce_errors(cpu_mec_display['cmd_infor'])
     response_data = {"cpu_mec": cpu_mec_display, "status": "PASS"}
     # response_data1 = data.append(response_data)
-    response_data = json.dumps(response_data)
-    print(response_data)
+    # response_data = json.dumps(response_data)
+    # print(response_data)
     return Response(response_data, status=status.HTTP_200_OK)
 
 
@@ -49,7 +49,7 @@ def mem_ecc_check(request):
         return
     write_log("->>> MEM ECC PASS ")
     response_data = {"mem_ecc": ecc_infor, "status": "PASS"}
-    response_data = json.dumps(response_data)
+    # response_data = json.dumps(response_data)
     # print(response_data)
     return Response(response_data, status=status.HTTP_200_OK)
 
@@ -68,7 +68,7 @@ def cpu_mce_errors(mce_errors):
             write_log("==============  CPU MCE ERROR Check End " + get_local_time_string() + " ================")
             write_log("->>> MCE ERROR ")
             response_data = {"mce_error": errors_information, "status": "FAIL"}
-            return Response(json.dumps(response_data), status=status.HTTP_403_FORBIDDEN)
+            return Response(response_data, status=status.HTTP_403_FORBIDDEN)
     write_log("->>> CPU MCE PASS ")
     return
 

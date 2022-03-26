@@ -33,3 +33,17 @@ def get_pid(cmd):
     if statusoutput[0] == 0 or statusoutput[0] == 1:
         return statusoutput[1]
     return
+
+
+# get free memory
+def get_mem(self):
+    out = self.run_cmd("free -m|grep Mem")
+    mem = out.split()[3]
+    # print(mem)
+    return int(mem) - 10240
+
+
+# 硬盘测试是否已经停止
+def get_pid_hdd():
+    out = subprocess.getstatusoutput("pidof fio")
+    return out

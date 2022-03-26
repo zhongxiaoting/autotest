@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'informationApp',              # 基本配置校对
     'stressApp',                   # 压力测试
     'finalApp',                    # 黑名单检查
-    'channels',
 
 ]
 
@@ -87,7 +86,7 @@ DATABASES = {
         'NAME': 'autotest',
         'USER': 'root',
         'PASSWORD': '123456',
-        'HOST': '192.168.38.22',
+        'HOST': '192.168.33.10',
         'POST': '3306',
     }
 }
@@ -136,11 +135,5 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#channels
-ASGI_APPLICATION = "autotest.asgi.application"    #入口信息
-CHANNEL_LAYERS = {    #频道后端，这里采用内存存储，默认是redis
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer"
-    }
-}
+
 

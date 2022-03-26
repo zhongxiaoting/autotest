@@ -18,15 +18,11 @@ LOG_PATH = TEST_DIR + '/log/' + sn + "/" + date_dir
 MCE_ECC_LOG_PATH = LOG_PATH + '/mce_ecc.log'
 CPU_STRESS_LOG_PATH = LOG_PATH + '/cpu_stress.log'
 MEM_STRESS_LOG_PATH = LOG_PATH + '/mem_stress.log'
-HDD_STRESS_LOG_PATH = LOG_PATH + '/hdd_stress.log'
+HDD_STRESS_LOG_PATH = LOG_PATH
 LAN_STRESS_LOG_PATH = LOG_PATH + '/lan_stress.log'
-ALL_STRESS_LOG_PATH = LOG_PATH + '/all_stress.log'
-
-
-
-
+ALL_DISKS_LOG_PATH = LOG_PATH + '/disks_all.log'
 
 ###############
 # 2. run time
 ###############
-RUN_SECONDS = 300
+RUN_SECONDS = 60
