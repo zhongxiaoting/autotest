@@ -1,0 +1,60 @@
+=============  CPU Stress Check Begin  2022-03-12 20:39:54 ================
+=============  CPU Stress Check Begin  2022-03-12 20:58:58 ================
+=============  CPU Stress Check Begin  2022-03-12 21:03:33 ================
+stress: info: [15772] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:05:40 ================
+stress: info: [15890] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:06:04 ================
+stress: info: [15919] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:06:52 ================
+stress: info: [15973] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:06:59 ================
+stress: info: [15999] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:07:47 ================
+stress: info: [16068] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:09:50 ================
+stress: info: [16175] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:11:25 ================
+=============  CPU Stress Check Begin  2022-03-12 21:11:44 ================
+stress: info: [16315] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+=============  CPU Stress Check Begin  2022-03-12 21:12:46 ================
+stress: info: [16377] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd
+
+stress: info: [16377] successful run completed in 50s
+
+==============  CPU Stress Check End  2022-03-12 21:13:36 =================
+=============  CPU Stress Check Begin  2022-03-14 16:52:05 ================
+=============  CPU Stress Check Begin  2022-03-14 16:53:12 ================
+{'cmd_error': 'command: stress -c 6 -t 50 ', 'cmd_infor': '/bin/sh: stress: command not found\n'}
+==============  CPU Stress Check End  2022-03-14 16:53:12 =================
+->>> CPU Check Fail 
+=============  CPU Stress Check Begin  2022-03-14 16:53:46 ================
+{'cmd_formal': 'command: ./stress -c 6 -t 50 ', 'cmd_infor': 'stress: info: [29305] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd\nstress: info: [29305] successful run completed in 50s\n'}
+==============  CPU Stress Check End  2022-03-14 16:54:36 =================
+->>> CPU Check PASS 
+=============  CPU Stress Check Begin  2022-03-15 15:04:25 ================
+{'cmd_error': 'command: stress -c 6 -t 50 ', 'cmd_infor': '/bin/sh: stress: command not found\n'}
+==============  CPU Stress Check End  2022-03-15 15:04:25 =================
+->>> CPU Check Fail 
+=============  CPU Stress Check Begin  2022-03-15 15:04:59 ================
+{'cmd_formal': 'command: ./stress -c 6 -t 50 ', 'cmd_infor': 'stress: info: [1179] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd\nstress: info: [1179] successful run completed in 50s\n'}
+==============  CPU Stress Check End  2022-03-15 15:05:49 =================
+->>> CPU Check PASS 
+=============  CPU Stress Check Begin  2022-03-16 14:43:44 ================
+=============  CPU Stress Check Begin  2022-03-16 14:45:49 ================
+=============  CPU Stress Check Begin  2022-03-16 14:46:40 ================
+{'cmd_formal': 'command: ./stress -c 6 -t 100 ', 'cmd_infor': 'stress: info: [8434] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd\nstress: info: [8434] successful run completed in 100s\n'}
+==============  CPU Stress Check End  2022-03-16 14:48:21 =================
+->>> CPU Check PASS 
+=============  CPU Stress Check Begin  2022-03-16 14:57:08 ================
+{'cmd_formal': 'command: ./stress -c 6 -t 50 ', 'cmd_infor': 'stress: info: [8864] dispatching hogs: 6 cpu, 0 io, 0 vm, 0 hdd\nstress: info: [8864] successful run completed in 50s\n\n'}
+==============  CPU Stress Check End  2022-03-16 14:57:58 =================
+->>> CPU Check PASS 

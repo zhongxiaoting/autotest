@@ -1,0 +1,42 @@
+========= Data Disk NO.11 Read And Write Begin  2022-03-26 13:50:27 ==========
+mytest_11: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_11: (groupid=0, jobs=10): err= 0: pid=30688: Sat Mar 26 13:51:28 2022
+  read : io=260992KB, bw=4348.6KB/s, iops=271, runt= 60019msec
+    clat (usec): min=68, max=245229, avg=22181.95, stdev=20974.15
+     lat (usec): min=68, max=245229, avg=22182.15, stdev=20974.15
+    clat percentiles (usec):
+     |  1.00th=[  378],  5.00th=[ 1496], 10.00th=[ 3760], 20.00th=[ 6496],
+     | 30.00th=[ 9280], 40.00th=[12352], 50.00th=[16064], 60.00th=[20352],
+     | 70.00th=[26496], 80.00th=[34560], 90.00th=[48384], 95.00th=[62208],
+     | 99.00th=[99840], 99.50th=[119296], 99.90th=[164864], 99.95th=[183296],
+     | 99.99th=[224256]
+  write: io=258256KB, bw=4302.1KB/s, iops=268, runt= 60019msec
+    clat (usec): min=263, max=129728, avg=14757.10, stdev=16998.15
+     lat (usec): min=264, max=129729, avg=14757.91, stdev=16998.18
+    clat percentiles (usec):
+     |  1.00th=[  306],  5.00th=[  342], 10.00th=[  374], 20.00th=[  668],
+     | 30.00th=[ 1208], 40.00th=[ 3120], 50.00th=[ 7904], 60.00th=[14656],
+     | 70.00th=[21376], 80.00th=[28544], 90.00th=[38656], 95.00th=[47360],
+     | 99.00th=[69120], 99.50th=[78336], 99.90th=[100864], 99.95th=[108032],
+     | 99.99th=[120320]
+    lat (usec) : 100=0.05%, 250=0.01%, 500=9.15%, 750=3.15%, 1000=2.83%
+    lat (msec) : 2=5.83%, 4=5.64%, 10=16.29%, 20=20.81%, 50=29.68%
+    lat (msec) : 100=6.01%, 250=0.54%
+  cpu          : usr=0.04%, sys=0.14%, ctx=32500, majf=0, minf=21
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16312/w=16141/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=260992KB, aggrb=4348KB/s, minb=4348KB/s, maxb=4348KB/s, mint=60019msec, maxt=60019msec
+  WRITE: io=258256KB, aggrb=4302KB/s, minb=4302KB/s, maxb=4302KB/s, mint=60019msec, maxt=60019msec
+
+Disk stats (read/write):
+  sdl: ios=16258/16074, merge=0/0, ticks=360353/236452, in_queue=596921, util=99.84%
+================== Data disk NO.11 End ====================

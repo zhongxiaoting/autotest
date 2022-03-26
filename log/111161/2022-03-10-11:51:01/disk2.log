@@ -1,0 +1,42 @@
+========= Data Disk NO.2 Read And Write Begin  2022-03-26 13:50:27 ==========
+mytest_2: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_2: (groupid=0, jobs=10): err= 0: pid=30517: Sat Mar 26 13:51:27 2022
+  read : io=263888KB, bw=4396.9KB/s, iops=274, runt= 60028msec
+    clat (usec): min=60, max=247975, avg=22074.49, stdev=20582.27
+     lat (usec): min=60, max=247975, avg=22074.70, stdev=20582.28
+    clat percentiles (usec):
+     |  1.00th=[  378],  5.00th=[ 1464], 10.00th=[ 3824], 20.00th=[ 6688],
+     | 30.00th=[ 9280], 40.00th=[12224], 50.00th=[16192], 60.00th=[20352],
+     | 70.00th=[26240], 80.00th=[34560], 90.00th=[48384], 95.00th=[61184],
+     | 99.00th=[97792], 99.50th=[113152], 99.90th=[152576], 99.95th=[171008],
+     | 99.99th=[234496]
+  write: io=260656KB, bw=4342.3KB/s, iops=271, runt= 60028msec
+    clat (usec): min=264, max=129100, avg=14483.01, stdev=16555.11
+     lat (usec): min=264, max=129130, avg=14483.73, stdev=16555.18
+    clat percentiles (usec):
+     |  1.00th=[  306],  5.00th=[  342], 10.00th=[  374], 20.00th=[  652],
+     | 30.00th=[ 1240], 40.00th=[ 3216], 50.00th=[ 7776], 60.00th=[14144],
+     | 70.00th=[20608], 80.00th=[28288], 90.00th=[37632], 95.00th=[45824],
+     | 99.00th=[68096], 99.50th=[77312], 99.90th=[96768], 99.95th=[99840],
+     | 99.99th=[118272]
+    lat (usec) : 100=0.04%, 250=0.02%, 500=9.04%, 750=3.20%, 1000=2.84%
+    lat (msec) : 2=5.69%, 4=5.41%, 10=16.82%, 20=21.08%, 50=29.51%
+    lat (msec) : 100=5.87%, 250=0.48%
+  cpu          : usr=0.04%, sys=0.14%, ctx=32785, majf=0, minf=14
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16493/w=16291/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=263888KB, aggrb=4396KB/s, minb=4396KB/s, maxb=4396KB/s, mint=60028msec, maxt=60028msec
+  WRITE: io=260656KB, aggrb=4342KB/s, minb=4342KB/s, maxb=4342KB/s, mint=60028msec, maxt=60028msec
+
+Disk stats (read/write):
+  sdc: ios=16538/16262, merge=0/0, ticks=362912/234899, in_queue=597886, util=99.82%
+================== Data disk NO.2 End ====================

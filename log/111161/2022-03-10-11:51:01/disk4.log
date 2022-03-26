@@ -1,0 +1,42 @@
+========= Data Disk NO.4 Read And Write Begin  2022-03-26 13:50:27 ==========
+mytest_4: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_4: (groupid=0, jobs=10): err= 0: pid=30588: Sat Mar 26 13:51:27 2022
+  read : io=287376KB, bw=4785.9KB/s, iops=299, runt= 60047msec
+    clat (usec): min=62, max=533477, avg=31942.95, stdev=35732.38
+     lat (usec): min=62, max=533477, avg=31943.16, stdev=35732.39
+    clat percentiles (usec):
+     |  1.00th=[  740],  5.00th=[ 2256], 10.00th=[ 3760], 20.00th=[ 6880],
+     | 30.00th=[10304], 40.00th=[14656], 50.00th=[19584], 60.00th=[26496],
+     | 70.00th=[36096], 80.00th=[49920], 90.00th=[76288], 95.00th=[101888],
+     | 99.00th=[168960], 99.50th=[199680], 99.90th=[276480], 99.95th=[317440],
+     | 99.99th=[423936]
+  write: io=283504KB, bw=4721.4KB/s, iops=295, runt= 60047msec
+    clat (usec): min=258, max=96166, avg=1486.74, stdev=2898.92
+     lat (usec): min=259, max=96167, avg=1487.46, stdev=2898.93
+    clat percentiles (usec):
+     |  1.00th=[  306],  5.00th=[  366], 10.00th=[  414], 20.00th=[  442],
+     | 30.00th=[  474], 40.00th=[  652], 50.00th=[  868], 60.00th=[ 1144],
+     | 70.00th=[ 1496], 80.00th=[ 2096], 90.00th=[ 3088], 95.00th=[ 4128],
+     | 99.00th=[ 7200], 99.50th=[ 9152], 99.90th=[51968], 99.95th=[66048],
+     | 99.99th=[87552]
+    lat (usec) : 100=0.05%, 250=0.01%, 500=16.52%, 750=5.97%, 1000=5.78%
+    lat (msec) : 2=12.95%, 4=11.07%, 10=11.74%, 20=10.94%, 50=14.87%
+    lat (msec) : 100=7.42%, 250=2.61%, 500=0.08%, 750=0.01%
+  cpu          : usr=0.03%, sys=0.16%, ctx=35682, majf=0, minf=17
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=17961/w=17719/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=287376KB, aggrb=4785KB/s, minb=4785KB/s, maxb=4785KB/s, mint=60047msec, maxt=60047msec
+  WRITE: io=283504KB, aggrb=4721KB/s, minb=4721KB/s, maxb=4721KB/s, mint=60047msec, maxt=60047msec
+
+Disk stats (read/write):
+  sde: ios=17966/17682, merge=0/0, ticks=571353/25976, in_queue=597579, util=99.84%
+================== Data disk NO.4 End ====================

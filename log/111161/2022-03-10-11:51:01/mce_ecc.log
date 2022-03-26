@@ -1,0 +1,464 @@
+=============  CPU MCE Check Begin  2022-03-11 11:14:23 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 11:14:24 =================
+->>>[32m  CPU MCE PASS [0m
+->>>[32m  CPU MCE PASS [0m
+->>>[32m  CPU MCE PASS [0m
+->>>[32m  CPU MCE PASS [0m
+=============  CPU MCE Check Begin  2022-03-11 16:09:37 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:09:38 =================
+->>>[32m  CPU MCE PASS [0m
+=============  CPU MCE Check Begin  2022-03-11 16:39:23 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:39:23 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:40:16 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:40:16 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:40:19 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:40:19 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:41:08 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:41:08 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:41:13 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:41:13 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:41:58 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:41:58 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:41:58 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:41:59 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:42:01 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:42:01 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-11 16:42:05 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 16:42:05 =================
+->>> CPU MCE PASS 
+=============  MEM ECC Check Begin  2022-03-11 17:55:29 ================
+{'cmd_error': 'command:ipmitool sel listFail', 'cmd_infor': '/bin/sh: ipmitool: command not found'}
+==============  MEM ECC Check End  2022-03-11 17:55:29 =================
+->>> MEM ECC PASS 
+=============  CPU MCE Check Begin  2022-03-11 17:56:21 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 17:56:21 =================
+->>> CPU MCE PASS 
+=============  MEM ECC Check Begin  2022-03-11 17:56:48 ================
+{'cmd_error': 'command:ipmitool sel listFail', 'cmd_infor': '/bin/sh: ipmitool: command not found'}
+==============  MEM ECC Check End  2022-03-11 17:56:48 =================
+->>> MEM ECC PASS 
+=============  CPU MCE Check Begin  2022-03-11 18:03:53 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-11 18:03:53 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-12 21:00:32 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-12 21:00:32 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-12 21:03:18 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-12 21:03:18 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-16 15:01:59 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-16 15:01:59 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-19 21:14:09 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-19 21:14:09 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-19 21:16:59 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-19 21:16:59 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-19 21:18:41 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-19 21:18:42 =================
+->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-03-21 13:23:03 ================
+{'cmd_formal': 'command: ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-21 13:23:03 =================
+->>> CPU MCE PASS 
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The network number is 1 ------------
+       logical name: enp4s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: enp8s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: veth1d55863
+------------ The network number is 1 ------------
+       logical name: enp4s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: enp8s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: veth1d55863
+------------ The memory physical number have 0 ------------
+------------ mem info come ------------
+	Locator: ChannelA-DIMM0
+	Bank Locator: BANK 0
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+Invalid handle number: %s
+Invalid handle number: %s
+------------ The memory is ok next is coming ------------
+	Locator: ChannelA-DIMM1
+	Bank Locator: BANK 1
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+Invalid handle number: %s
+Invalid handle number: %s
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM0
+	Bank Locator: BANK 2
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+Invalid handle number: %s
+Invalid handle number: %s
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM1
+	Bank Locator: BANK 3
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+Invalid handle number: %s
+Invalid handle number: %s
+------------ The memory is ok next is coming ------------
+------------ The memory physical number have 0 ------------
+------------ mem info come ------------
+	Locator: ChannelA-DIMM0
+	Bank Locator: BANK 0
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1966A038
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelA-DIMM1
+	Bank Locator: BANK 1
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM0
+	Bank Locator: BANK 2
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1894F685
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM1
+	Bank Locator: BANK 3
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+------------ The network number is 1 ------------
+       logical name: enp4s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: enp8s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: veth1d55863
+------------ The memory physical number have 0 ------------
+------------ mem info come ------------
+	Locator: ChannelA-DIMM0
+	Bank Locator: BANK 0
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1966A038
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelA-DIMM1
+	Bank Locator: BANK 1
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM0
+	Bank Locator: BANK 2
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1894F685
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM1
+	Bank Locator: BANK 3
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+------------ The memory physical number have 0 ------------
+------------ mem info come ------------
+	Locator: ChannelA-DIMM0
+	Bank Locator: BANK 0
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1966A038
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelA-DIMM1
+	Bank Locator: BANK 1
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM0
+	Bank Locator: BANK 2
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1894F685
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM1
+	Bank Locator: BANK 3
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The network number is 1 ------------
+       logical name: enp4s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: enp8s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: veth1d55863
+------------ The network number is 1 ------------
+       logical name: enp4s0
+------------ The network number is 1 ------------
+       logical name: enp4s0
+------------ The network number is 1 ------------
+       logical name: enp4s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: enp8s0
+I210 Gigabit Network Connection
+Intel Corporation
+100Mbit/s
+------------ next one -------------
+       logical name: veth1d55863
+------------ The network number is 1 ------------
+       logical name: enp4s0
+I210 Gigabit Network Connection
+['Intel Corporation', 'Intel Corporation']
+['100Mbit/s']
+------------ next one -------------
+       logical name: enp8s0
+I210 Gigabit Network Connection
+['Intel Corporation', 'Intel Corporation']
+['100Mbit/s']
+------------ next one -------------
+       logical name: veth1d55863
+------------ The network number is 1 ------------
+       logical name: enp4s0
+['I210 Gigabit Network Connection', 'I210 Gigabit Network Connection']
+['Intel Corporation', 'Intel Corporation']
+['100Mbit/s']
+------------ next one -------------
+       logical name: enp8s0
+['I210 Gigabit Network Connection', 'I210 Gigabit Network Connection']
+['Intel Corporation', 'Intel Corporation']
+['100Mbit/s']
+------------ next one -------------
+       logical name: veth1d55863
+[]
+[]
+['10Gbit/s']
+------------ next one -------------
+       logical name: docker0
+[]
+[]
+------------ next one -------------
+------------ The memory physical number have 0 ------------
+------------ mem info come ------------
+	Locator: ChannelA-DIMM0
+	Bank Locator: BANK 0
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1966A038
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelA-DIMM1
+	Bank Locator: BANK 1
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM0
+	Bank Locator: BANK 2
+
+	Speed: 1600 MT/s
+	Configured Memory Speed: 1600 MT/s
+	Serial Number: 1894F685
+	Part Number: M391B1G73QH0-YK0  
+------------ The memory is ok next is coming ------------
+	Locator: ChannelB-DIMM1
+	Bank Locator: BANK 3
+
+	Speed: Unknown
+	Configured Memory Speed: Unknown
+	Serial Number: [Empty]
+	Part Number: [Empty]
+------------ The memory is ok next is coming ------------
+=============  CPU MCE Check Begin  2022-03-25 13:56:33 ================
+{'command': 'ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-25 13:56:33 =================
+->>> CPU MCE PASS 
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+------------ The cpu physical number have 1 ------------
+------------ cpu info come ------------
+	Socket Designation: CPUSocket
+	Manufacturer: Intel
+	Current Speed: 3300 MHz
+The cpu core number is cpu cores	: 4
+cpu cores	: 4
+------------ The cpu is ok next is coming ------------
+=============  CPU MCE Check Begin  2022-03-26 13:20:18 ================
+{'command': 'ras-mc-ctl --summary Fail', 'cmd_infor': '/bin/sh: ras-mc-ctl: command not found'}
+==============  CPU MCE Check End  2022-03-26 13:20:18 =================
+============  CPU MCE ERROR Check Begin 2022-03-26 13:20:18 ==============
+{'command': 'ras-mc-ctl --errors Fail', 'cmd_infor': '/bin/sh: ras-mc-ctl: command not found'}
+==============  CPU MCE ERROR Check End 2022-03-26 13:20:18 ================
+->>> MCE ERROR 
+=============  CPU MCE Check Begin  2022-03-26 13:25:00 ================
+{'comand': 'ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-26 13:25:00 =================
+->>> CPU MCE PASS 
