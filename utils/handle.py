@@ -32,14 +32,10 @@ def stress_fail(name):
 
 # 压测cmd, 实时输出信息
 def cmd_stress(cmd):
-    out = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-    pid = out.wait()
-    cmd_infor = out.stdout.read()
+    out = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    cmd_infor = out.stdout.read().decode("utf-8")
     # 127 shell命令错误，0命令正确，1命令正确但是没有输出
-    if pid == 0:
-        cmd_msg = {"command": cmd, "cmd_infor": cmd_infor}
-    else:
-        cmd_msg = {"command": cmd, "cmd_infor": cmd_infor}
+    cmd_msg = {"command": cmd, "cmd_infor": cmd_infor}
     return cmd_msg
 
 

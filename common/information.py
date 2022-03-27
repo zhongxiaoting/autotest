@@ -9,7 +9,7 @@ from serversApp.models import Server
 # CPU的使用率
 def get_current_cpu_use():
     out = h.run_cmd("cat /proc/stat|head -n 1")
-    l = out.split()
+    l = out['cmd_infor'].split()
     user = int(l[1])
     nice = int(l[2])
     sys = int(l[3])
@@ -22,7 +22,7 @@ def get_current_cpu_use():
 def get_thread_num():
     core_num = h.run_cmd("cat /proc/cpuinfo | grep -c processor")
     free_cpu = 1 - get_current_cpu_use()
-    thread_num = int(free_cpu * (int(core_num) - 1))
+    thread_num = int(free_cpu * (int(core_num['cmd_infor']) - 1))
     return thread_num
 
 
@@ -36,9 +36,9 @@ def get_pid(cmd):
 
 
 # get free memory
-def get_mem(self):
-    out = self.run_cmd("free -m|grep Mem")
-    mem = out.split()[3]
+def get_mem():
+    out = h.run_cmd("free -m|grep Mem")
+    mem = out['cmd_infor'].split()[3]
     # print(mem)
     return int(mem) - 10240
 

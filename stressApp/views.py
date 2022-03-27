@@ -4,10 +4,7 @@ import multiprocessing
 import re
 import subprocess
 
-from django.shortcuts import render
-
 import os
-import sys
 import threading
 import time
 
@@ -20,6 +17,7 @@ from common import information as fn, operation as op
 from utils import handle as h
 from stressApp import disk as dk
 
+
 # Create your views here.
 
 def top_log():
@@ -29,6 +27,7 @@ def top_log():
 
 @api_view(['GET'])
 def stress_check(request):
+    subprocess.getstatusoutput("rm -rf " + c.CPU_STRESS_LOG_PATH)
     thread_num = fn.get_thread_num()
     shell = "./tools/stress -c {} -t {} ".format(thread_num, c.RUN_SECONDS)
     cpu_write_log("=============  CPU Stress Check Begin  " + get_local_time_string() + " ================")
@@ -93,9 +92,31 @@ def get_hdd_log():
     out = fn.get_pid_hdd()
     if out[0] == 1 and out[1] == '':
         read_and_write_hdd_log()
-        f = open(c.ALL_DISKS_LOG_PATH, 'r')
-        response_data = {"hdd_log": f, "status": "PASS"}
+        hdd_result = hdd_result_check()
+        if hdd_result:
+            response_data = {'hddd_log': hdd_result, "status": "FAIL"}
+        else:
+            f = open(c.ALL_DISKS_LOG_PATH, "r")
+            response_data = {"hdd_log": f, "status": "PASS"}
     return response_data
+
+
+# 检查og是否错误
+def hdd_result_check():
+    with open(c.ALL_DISKS_LOG_PATH, "r+") as f:
+        data = f.read()
+        error1 = re.findall("fail", data)
+        error2 = re.findall("Fail", data)
+        error3 = re.findall("error", data)
+        error4 = re.findall("ERROR", data)
+        error5 = re.findall("FAIL", data)
+        if error1 or error2 or error3 or error4 or error5:
+            data.write("->> There are ERRORS in the project, Please check！")
+            response_data = "Stress Check have ERROR, Please check progress!"
+            return response_data
+        f.flush()
+        f.close()
+        return
 
 
 # 是否要组Raid卡
@@ -150,9 +171,9 @@ def read_and_write_hdd_log():
     data_disks = dk.remove_os_disk()
     len_disks = len(data_disks)
     for i in range(len_disks):
-        with open(c.HDD_STRESS_LOG_PATH + "disk" + str(i) + '.log', "r") as f:
+        with open(c.HDD_STRESS_LOG_PATH + "/disk" + str(i) + '.log', "r") as f:
             hdd_data = f.read()
-    write_disks_log(str(hdd_data) + '\n')
+        write_disks_log(str(hdd_data) + '\n')
     return hdd_data
 
 
@@ -202,3 +223,7 @@ def write_disks_log(s):
 
 def get_local_time_string():
     return time.strftime('%04Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+
+#######################################################
+# 网卡测试
+#######################################################

@@ -12,3 +12,4 @@ def check_mem_pid():
         return None
     else:
         return statusoutput[1]
+
