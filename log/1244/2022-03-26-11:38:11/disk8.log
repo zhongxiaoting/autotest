@@ -1,0 +1,42 @@
+========= Data Disk NO.8 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_8: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_8: (groupid=0, jobs=10): err= 0: pid=83806: Sun Mar 27 15:12:37 2022
+  read : io=281344KB, bw=4685.1KB/s, iops=292, runt= 60040msec
+    clat (usec): min=66, max=619696, avg=32526.96, stdev=38498.18
+     lat (usec): min=67, max=619696, avg=32527.15, stdev=38498.19
+    clat percentiles (usec):
+     |  1.00th=[  852],  5.00th=[ 2768], 10.00th=[ 4256], 20.00th=[ 7072],
+     | 30.00th=[10432], 40.00th=[14656], 50.00th=[19328], 60.00th=[26496],
+     | 70.00th=[36096], 80.00th=[50432], 90.00th=[77312], 95.00th=[104960],
+     | 99.00th=[179200], 99.50th=[209920], 99.90th=[309248], 99.95th=[428032],
+     | 99.99th=[618496]
+  write: io=278048KB, bw=4631.5KB/s, iops=289, runt= 60040msec
+    clat (usec): min=282, max=581078, avg=1619.75, stdev=7980.64
+     lat (usec): min=282, max=581079, avg=1620.22, stdev=7980.65
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  390], 10.00th=[  418], 20.00th=[  450],
+     | 30.00th=[  498], 40.00th=[  676], 50.00th=[  884], 60.00th=[ 1160],
+     | 70.00th=[ 1496], 80.00th=[ 2064], 90.00th=[ 3152], 95.00th=[ 4256],
+     | 99.00th=[ 7840], 99.50th=[11072], 99.90th=[29568], 99.95th=[195584],
+     | 99.99th=[577536]
+    lat (usec) : 100=0.03%, 250=0.01%, 500=14.97%, 750=6.77%, 1000=6.12%
+    lat (msec) : 2=12.91%, 4=10.62%, 10=12.51%, 20=11.33%, 50=14.44%
+    lat (msec) : 100=7.44%, 250=2.71%, 500=0.10%, 750=0.03%
+  cpu          : usr=0.02%, sys=0.17%, ctx=35007, majf=0, minf=25
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=17584/w=17378/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=281344KB, aggrb=4685KB/s, minb=4685KB/s, maxb=4685KB/s, mint=60040msec, maxt=60040msec
+  WRITE: io=278048KB, aggrb=4631KB/s, minb=4631KB/s, maxb=4631KB/s, mint=60040msec, maxt=60040msec
+
+Disk stats (read/write):
+  sdj: ios=17584/17346, merge=0/0, ticks=599992/27651, in_queue=628179, util=99.83%
+================== Data disk NO.8 End ====================

@@ -1,0 +1,608 @@
+=========== Disks Read and Write Check  2022-03-27 15:11:07 ===============
+
+===================== Building Raid ============================
+============== Build Raid Success, Information ==================
+/home/autotest
+CLI Version = 007.1912.0000.0000 Nov 23, 2021
+Operating system = Linux 3.10.0-1160.el7.x86_64
+Controller = 0
+Status = Success
+Description = Add VD Succeeded.
+
+
+NAME            MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sdb               8:16   0 446.6G  0 disk 
+sdc               8:32   0 446.6G  0 disk 
+sdd               8:48   0  10.9T  0 disk 
+sde               8:64   0  10.9T  0 disk 
+sdf               8:80   0  10.9T  0 disk 
+sdg               8:96   0  10.9T  0 disk 
+sdh               8:112  0  10.9T  0 disk 
+sdi               8:128  0  10.9T  0 disk 
+sdj               8:144  0  10.9T  0 disk 
+sdk               8:160  0  10.9T  0 disk 
+sdl               8:176  0  10.9T  0 disk 
+sdm               8:192  0  10.9T  0 disk 
+nvme0n1         259:0    0   1.5T  0 disk 
+├─nvme0n1p1     259:1    0     1G  0 part 
+├─nvme0n1p2     259:2    0     1G  0 part /boot
+└─nvme0n1p3     259:3    0   1.5T  0 part 
+  ├─centos-root 253:0    0    50G  0 lvm  /
+  ├─centos-swap 253:1    0     4G  0 lvm  [SWAP]
+  └─centos-home 253:2    0   1.4T  0 lvm  /home
+nvme1n1         259:4    0   1.5T  0 disk 
+==================================================================
+->>> System Disk is : nvme0n1
+->>> Tatol Non-system Disks: 13
+->>> Non-system Disks is : 
+['/dev/sdb', '/dev/sdc', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg', '/dev/sdh', '/dev/sdi', '/dev/sdj', '/dev/sdk', '/dev/sdl', '/dev/sdm', '/dev/nvme1n1']
+========= Data Disk NO.0 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_0: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_0: (groupid=0, jobs=10): err= 0: pid=83702: Sun Mar 27 15:12:37 2022
+  read : io=11183MB, bw=190858KB/s, iops=11928, runt= 60001msec
+    clat (usec): min=52, max=710008, avg=544.31, stdev=1799.22
+     lat (usec): min=52, max=710008, avg=544.48, stdev=1799.22
+    clat percentiles (usec):
+     |  1.00th=[  326],  5.00th=[  374], 10.00th=[  402], 20.00th=[  438],
+     | 30.00th=[  466], 40.00th=[  490], 50.00th=[  516], 60.00th=[  540],
+     | 70.00th=[  572], 80.00th=[  620], 90.00th=[  708], 95.00th=[  788],
+     | 99.00th=[  940], 99.50th=[  996], 99.90th=[ 1256], 99.95th=[ 1976],
+     | 99.99th=[ 2896]
+  write: io=11199MB, bw=191130KB/s, iops=11945, runt= 60001msec
+    clat (usec): min=76, max=709888, avg=289.52, stdev=1896.00
+     lat (usec): min=76, max=709889, avg=290.09, stdev=1896.00
+    clat percentiles (usec):
+     |  1.00th=[   98],  5.00th=[  133], 10.00th=[  167], 20.00th=[  213],
+     | 30.00th=[  247], 40.00th=[  270], 50.00th=[  294], 60.00th=[  314],
+     | 70.00th=[  334], 80.00th=[  354], 90.00th=[  374], 95.00th=[  390],
+     | 99.00th=[  410], 99.50th=[  414], 99.90th=[  430], 99.95th=[  446],
+     | 99.99th=[  804]
+    lat (usec) : 100=0.68%, 250=15.08%, 500=56.29%, 750=24.49%, 1000=3.20%
+    lat (msec) : 2=0.23%, 4=0.02%, 250=0.01%, 500=0.01%, 750=0.01%
+  cpu          : usr=1.15%, sys=6.22%, ctx=1432582, majf=0, minf=664
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=715731/w=716749/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=11183MB, aggrb=190858KB/s, minb=190858KB/s, maxb=190858KB/s, mint=60001msec, maxt=60001msec
+  WRITE: io=11199MB, aggrb=191129KB/s, minb=191129KB/s, maxb=191129KB/s, mint=60001msec, maxt=60001msec
+
+Disk stats (read/write):
+  sdb: ios=715037/715977, merge=0/0, ticks=376818/190666, in_queue=568109, util=100.00%
+================== Data disk NO.0 End ====================
+
+
+========= Data Disk NO.1 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_1: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_1: (groupid=0, jobs=10): err= 0: pid=83715: Sun Mar 27 15:12:37 2022
+  read : io=11288MB, bw=192646KB/s, iops=12040, runt= 60001msec
+    clat (usec): min=50, max=709621, avg=536.60, stdev=2047.02
+     lat (usec): min=50, max=709621, avg=536.77, stdev=2047.02
+    clat percentiles (usec):
+     |  1.00th=[  326],  5.00th=[  374], 10.00th=[  402], 20.00th=[  438],
+     | 30.00th=[  466], 40.00th=[  486], 50.00th=[  510], 60.00th=[  532],
+     | 70.00th=[  564], 80.00th=[  604], 90.00th=[  676], 95.00th=[  748],
+     | 99.00th=[  876], 99.50th=[  916], 99.90th=[ 1048], 99.95th=[ 1768],
+     | 99.99th=[ 2704]
+  write: io=11307MB, bw=192971KB/s, iops=12060, runt= 60001msec
+    clat (usec): min=71, max=709507, avg=289.50, stdev=1581.06
+     lat (usec): min=71, max=709508, avg=290.02, stdev=1581.06
+    clat percentiles (usec):
+     |  1.00th=[   99],  5.00th=[  137], 10.00th=[  171], 20.00th=[  217],
+     | 30.00th=[  249], 40.00th=[  274], 50.00th=[  294], 60.00th=[  314],
+     | 70.00th=[  334], 80.00th=[  354], 90.00th=[  374], 95.00th=[  390],
+     | 99.00th=[  410], 99.50th=[  414], 99.90th=[  430], 99.95th=[  462],
+     | 99.99th=[  732]
+    lat (usec) : 100=0.63%, 250=14.72%, 500=57.37%, 750=24.80%, 1000=2.39%
+    lat (msec) : 2=0.06%, 4=0.02%, 250=0.01%, 500=0.01%, 750=0.01%
+  cpu          : usr=1.12%, sys=6.25%, ctx=1446198, majf=0, minf=766
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=722433/w=723652/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=11288MB, aggrb=192645KB/s, minb=192645KB/s, maxb=192645KB/s, mint=60001msec, maxt=60001msec
+  WRITE: io=11307MB, aggrb=192970KB/s, minb=192970KB/s, maxb=192970KB/s, mint=60001msec, maxt=60001msec
+
+Disk stats (read/write):
+  sdc: ios=721336/722415, merge=0/0, ticks=375279/192042, in_queue=568278, util=100.00%
+================== Data disk NO.1 End ====================
+
+
+========= Data Disk NO.2 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_2: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_2: (groupid=0, jobs=10): err= 0: pid=83733: Sun Mar 27 15:12:37 2022
+  read : io=268960KB, bw=4480.9KB/s, iops=280, runt= 60024msec
+    clat (usec): min=63, max=283791, avg=21119.01, stdev=19025.40
+     lat (usec): min=63, max=283792, avg=21119.22, stdev=19025.40
+    clat percentiles (usec):
+     |  1.00th=[  430],  5.00th=[ 2288], 10.00th=[ 4256], 20.00th=[ 6880],
+     | 30.00th=[ 9408], 40.00th=[12096], 50.00th=[15808], 60.00th=[19584],
+     | 70.00th=[25472], 80.00th=[33024], 90.00th=[44288], 95.00th=[57088],
+     | 99.00th=[86528], 99.50th=[102912], 99.90th=[152576], 99.95th=[171008],
+     | 99.99th=[272384]
+  write: io=265632KB, bw=4425.5KB/s, iops=276, runt= 60024msec
+    clat (usec): min=273, max=215339, avg=14198.32, stdev=15815.38
+     lat (usec): min=273, max=215339, avg=14198.81, stdev=15815.38
+    clat percentiles (usec):
+     |  1.00th=[  322],  5.00th=[  346], 10.00th=[  386], 20.00th=[  692],
+     | 30.00th=[ 1256], 40.00th=[ 3504], 50.00th=[ 8256], 60.00th=[14656],
+     | 70.00th=[20608], 80.00th=[27520], 90.00th=[36608], 95.00th=[44288],
+     | 99.00th=[60160], 99.50th=[70144], 99.90th=[94720], 99.95th=[111104],
+     | 99.99th=[201728]
+    lat (usec) : 100=0.02%, 250=0.01%, 500=7.65%, 750=4.08%, 1000=2.98%
+    lat (msec) : 2=5.16%, 4=5.33%, 10=17.31%, 20=22.15%, 50=30.35%
+    lat (msec) : 100=4.63%, 250=0.31%, 500=0.01%
+  cpu          : usr=0.03%, sys=0.16%, ctx=33434, majf=0, minf=16
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16810/w=16602/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=268960KB, aggrb=4480KB/s, minb=4480KB/s, maxb=4480KB/s, mint=60024msec, maxt=60024msec
+  WRITE: io=265632KB, aggrb=4425KB/s, minb=4425KB/s, maxb=4425KB/s, mint=60024msec, maxt=60024msec
+
+Disk stats (read/write):
+  sdd: ios=16837/16575, merge=0/0, ticks=367514/234406, in_queue=602158, util=98.32%
+================== Data disk NO.2 End ====================
+
+
+========= Data Disk NO.3 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_3: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_3: (groupid=0, jobs=10): err= 0: pid=83746: Sun Mar 27 15:12:37 2022
+  read : io=263568KB, bw=4389.1KB/s, iops=274, runt= 60039msec
+    clat (usec): min=71, max=747047, avg=22003.19, stdev=24570.85
+     lat (usec): min=71, max=747047, avg=22003.39, stdev=24570.85
+    clat percentiles (usec):
+     |  1.00th=[  386],  5.00th=[ 2448], 10.00th=[ 4256], 20.00th=[ 6816],
+     | 30.00th=[ 9536], 40.00th=[12352], 50.00th=[16192], 60.00th=[20096],
+     | 70.00th=[25984], 80.00th=[34048], 90.00th=[46848], 95.00th=[59136],
+     | 99.00th=[90624], 99.50th=[109056], 99.90th=[226304], 99.95th=[252928],
+     | 99.99th=[724992]
+  write: io=260480KB, bw=4338.6KB/s, iops=271, runt= 60039msec
+    clat (usec): min=271, max=709573, avg=14597.19, stdev=18894.22
+     lat (usec): min=272, max=709574, avg=14597.99, stdev=18894.25
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  346], 10.00th=[  382], 20.00th=[  692],
+     | 30.00th=[ 1208], 40.00th=[ 3280], 50.00th=[ 7840], 60.00th=[14528],
+     | 70.00th=[21376], 80.00th=[28800], 90.00th=[37632], 95.00th=[45312],
+     | 99.00th=[62208], 99.50th=[70144], 99.90th=[90624], 99.95th=[197632],
+     | 99.99th=[692224]
+    lat (usec) : 100=0.04%, 250=0.01%, 500=8.05%, 750=3.94%, 1000=2.94%
+    lat (msec) : 2=5.27%, 4=5.31%, 10=17.19%, 20=21.24%, 50=30.31%
+    lat (msec) : 100=5.29%, 250=0.38%, 500=0.01%, 750=0.03%
+  cpu          : usr=0.03%, sys=0.17%, ctx=32754, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16473/w=16280/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=263568KB, aggrb=4389KB/s, minb=4389KB/s, maxb=4389KB/s, mint=60039msec, maxt=60039msec
+  WRITE: io=260480KB, aggrb=4338KB/s, minb=4338KB/s, maxb=4338KB/s, mint=60039msec, maxt=60039msec
+
+Disk stats (read/write):
+  sde: ios=16493/16255, merge=0/0, ticks=374705/236431, in_queue=611373, util=99.88%
+================== Data disk NO.3 End ====================
+
+
+========= Data Disk NO.4 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_4: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_4: (groupid=0, jobs=10): err= 0: pid=83725: Sun Mar 27 15:12:37 2022
+  read : io=279344KB, bw=4649.8KB/s, iops=290, runt= 60078msec
+    clat (usec): min=63, max=744017, avg=32865.63, stdev=38773.37
+     lat (usec): min=63, max=744017, avg=32865.84, stdev=38773.38
+    clat percentiles (usec):
+     |  1.00th=[  852],  5.00th=[ 2704], 10.00th=[ 4128], 20.00th=[ 7264],
+     | 30.00th=[10688], 40.00th=[15040], 50.00th=[20096], 60.00th=[27008],
+     | 70.00th=[36608], 80.00th=[51456], 90.00th=[76288], 95.00th=[104960],
+     | 99.00th=[173056], 99.50th=[209920], 99.90th=[309248], 99.95th=[415744],
+     | 99.99th=[724992]
+  write: io=275664KB, bw=4588.5KB/s, iops=286, runt= 60078msec
+    clat (usec): min=279, max=710084, avg=1530.04, stdev=10280.43
+     lat (usec): min=280, max=710085, avg=1530.77, stdev=10280.43
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  386], 10.00th=[  414], 20.00th=[  446],
+     | 30.00th=[  482], 40.00th=[  636], 50.00th=[  844], 60.00th=[ 1096],
+     | 70.00th=[ 1368], 80.00th=[ 1896], 90.00th=[ 2896], 95.00th=[ 3920],
+     | 99.00th=[ 6432], 99.50th=[ 7712], 99.90th=[16192], 99.95th=[203776],
+     | 99.99th=[692224]
+    lat (usec) : 100=0.05%, 250=0.01%, 500=16.16%, 750=6.57%, 1000=6.17%
+    lat (msec) : 2=13.06%, 4=10.14%, 10=11.44%, 20=11.20%, 50=14.73%
+    lat (msec) : 100=7.63%, 250=2.73%, 500=0.10%, 750=0.03%
+  cpu          : usr=0.03%, sys=0.17%, ctx=34688, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=17459/w=17229/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=279344KB, aggrb=4649KB/s, minb=4649KB/s, maxb=4649KB/s, mint=60078msec, maxt=60078msec
+  WRITE: io=275664KB, aggrb=4588KB/s, minb=4588KB/s, maxb=4588KB/s, mint=60078msec, maxt=60078msec
+
+Disk stats (read/write):
+  sdf: ios=17514/17196, merge=0/0, ticks=590287/25843, in_queue=616684, util=99.84%
+================== Data disk NO.4 End ====================
+
+
+========= Data Disk NO.5 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_5: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_5: (groupid=0, jobs=10): err= 0: pid=83759: Sun Mar 27 15:12:37 2022
+  read : io=289184KB, bw=4816.9KB/s, iops=301, runt= 60036msec
+    clat (usec): min=80, max=510729, avg=31606.03, stdev=36561.06
+     lat (usec): min=80, max=510729, avg=31606.23, stdev=36561.06
+    clat percentiles (usec):
+     |  1.00th=[  876],  5.00th=[ 2832], 10.00th=[ 4256], 20.00th=[ 7072],
+     | 30.00th=[10432], 40.00th=[14784], 50.00th=[19584], 60.00th=[26240],
+     | 70.00th=[35584], 80.00th=[48896], 90.00th=[74240], 95.00th=[98816],
+     | 99.00th=[166912], 99.50th=[201728], 99.90th=[350208], 99.95th=[464896],
+     | 99.99th=[501760]
+  write: io=285120KB, bw=4749.2KB/s, iops=296, runt= 60036msec
+    clat (usec): min=267, max=475627, avg=1614.01, stdev=8553.99
+     lat (usec): min=267, max=475629, avg=1614.79, stdev=8553.99
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  386], 10.00th=[  418], 20.00th=[  450],
+     | 30.00th=[  510], 40.00th=[  708], 50.00th=[  908], 60.00th=[ 1144],
+     | 70.00th=[ 1496], 80.00th=[ 2128], 90.00th=[ 3120], 95.00th=[ 4128],
+     | 99.00th=[ 6880], 99.50th=[ 8768], 99.90th=[21632], 99.95th=[199680],
+     | 99.99th=[456704]
+    lat (usec) : 100=0.04%, 250=0.01%, 500=14.64%, 750=6.39%, 1000=6.41%
+    lat (msec) : 2=12.95%, 4=10.99%, 10=12.43%, 20=11.32%, 50=15.07%
+    lat (msec) : 100=7.26%, 250=2.36%, 500=0.13%, 750=0.01%
+  cpu          : usr=0.04%, sys=0.18%, ctx=35894, majf=0, minf=13
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=18074/w=17820/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=289184KB, aggrb=4816KB/s, minb=4816KB/s, maxb=4816KB/s, mint=60036msec, maxt=60036msec
+  WRITE: io=285120KB, aggrb=4749KB/s, minb=4749KB/s, maxb=4749KB/s, mint=60036msec, maxt=60036msec
+
+Disk stats (read/write):
+  sdg: ios=18087/17781, merge=0/0, ticks=611470/28130, in_queue=640205, util=99.87%
+================== Data disk NO.5 End ====================
+
+
+========= Data Disk NO.6 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_6: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_6: (groupid=0, jobs=10): err= 0: pid=83776: Sun Mar 27 15:12:37 2022
+  read : io=265536KB, bw=4421.3KB/s, iops=276, runt= 60059msec
+    clat (usec): min=72, max=513809, avg=22176.93, stdev=23545.82
+     lat (usec): min=72, max=513809, avg=22177.14, stdev=23545.82
+    clat percentiles (usec):
+     |  1.00th=[  386],  5.00th=[ 2416], 10.00th=[ 4128], 20.00th=[ 6752],
+     | 30.00th=[ 9408], 40.00th=[12352], 50.00th=[16064], 60.00th=[20352],
+     | 70.00th=[25984], 80.00th=[34048], 90.00th=[47360], 95.00th=[60160],
+     | 99.00th=[91648], 99.50th=[109056], 99.90th=[254976], 99.95th=[399360],
+     | 99.99th=[505856]
+  write: io=262560KB, bw=4371.8KB/s, iops=273, runt= 60059msec
+    clat (usec): min=272, max=475302, avg=14150.22, stdev=17888.50
+     lat (usec): min=273, max=475303, avg=14150.73, stdev=17888.50
+    clat percentiles (usec):
+     |  1.00th=[  322],  5.00th=[  342], 10.00th=[  374], 20.00th=[  636],
+     | 30.00th=[ 1096], 40.00th=[ 2640], 50.00th=[ 7072], 60.00th=[13632],
+     | 70.00th=[20864], 80.00th=[27776], 90.00th=[37120], 95.00th=[44800],
+     | 99.00th=[62208], 99.50th=[69120], 99.90th=[96768], 99.95th=[209920],
+     | 99.99th=[456704]
+    lat (usec) : 100=0.03%, 250=0.02%, 500=8.61%, 750=4.05%, 1000=2.97%
+    lat (msec) : 2=5.32%, 4=5.57%, 10=16.88%, 20=20.76%, 50=29.79%
+    lat (msec) : 100=5.61%, 250=0.32%, 500=0.06%, 750=0.01%
+  cpu          : usr=0.03%, sys=0.16%, ctx=33011, majf=0, minf=14
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16596/w=16410/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=265536KB, aggrb=4421KB/s, minb=4421KB/s, maxb=4421KB/s, mint=60059msec, maxt=60059msec
+  WRITE: io=262560KB, aggrb=4371KB/s, minb=4371KB/s, maxb=4371KB/s, mint=60059msec, maxt=60059msec
+
+Disk stats (read/write):
+  sdh: ios=16595/16380, merge=0/0, ticks=380061/230911, in_queue=611072, util=99.88%
+================== Data disk NO.6 End ====================
+
+
+========= Data Disk NO.7 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_7: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_7: (groupid=0, jobs=10): err= 0: pid=83786: Sun Mar 27 15:12:37 2022
+  read : io=264304KB, bw=4403.3KB/s, iops=275, runt= 60025msec
+    clat (usec): min=61, max=521999, avg=22033.60, stdev=22955.34
+     lat (usec): min=62, max=521999, avg=22033.81, stdev=22955.33
+    clat percentiles (usec):
+     |  1.00th=[  386],  5.00th=[ 2320], 10.00th=[ 4256], 20.00th=[ 6880],
+     | 30.00th=[ 9536], 40.00th=[12352], 50.00th=[16320], 60.00th=[20352],
+     | 70.00th=[26240], 80.00th=[34048], 90.00th=[46336], 95.00th=[58624],
+     | 99.00th=[91648], 99.50th=[108032], 99.90th=[242688], 99.95th=[387072],
+     | 99.99th=[481280]
+  write: io=261008KB, bw=4348.4KB/s, iops=271, runt= 60025msec
+    clat (usec): min=268, max=475218, avg=14470.92, stdev=17802.70
+     lat (usec): min=269, max=475220, avg=14471.67, stdev=17802.72
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  342], 10.00th=[  374], 20.00th=[  660],
+     | 30.00th=[ 1160], 40.00th=[ 3216], 50.00th=[ 7840], 60.00th=[14400],
+     | 70.00th=[21120], 80.00th=[28288], 90.00th=[37120], 95.00th=[45312],
+     | 99.00th=[62208], 99.50th=[70144], 99.90th=[99840], 99.95th=[205824],
+     | 99.99th=[448512]
+    lat (usec) : 100=0.03%, 250=0.02%, 500=8.42%, 750=3.87%, 1000=2.91%
+    lat (msec) : 2=5.08%, 4=5.26%, 10=17.01%, 20=21.13%, 50=30.56%
+    lat (msec) : 100=5.29%, 250=0.35%, 500=0.06%, 750=0.01%
+  cpu          : usr=0.03%, sys=0.17%, ctx=32841, majf=0, minf=20
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16519/w=16313/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=264304KB, aggrb=4403KB/s, minb=4403KB/s, maxb=4403KB/s, mint=60025msec, maxt=60025msec
+  WRITE: io=261008KB, aggrb=4348KB/s, minb=4348KB/s, maxb=4348KB/s, mint=60025msec, maxt=60025msec
+
+Disk stats (read/write):
+  sdi: ios=16525/16267, merge=0/0, ticks=376632/234509, in_queue=611250, util=99.85%
+================== Data disk NO.7 End ====================
+
+
+========= Data Disk NO.8 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_8: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_8: (groupid=0, jobs=10): err= 0: pid=83806: Sun Mar 27 15:12:37 2022
+  read : io=281344KB, bw=4685.1KB/s, iops=292, runt= 60040msec
+    clat (usec): min=66, max=619696, avg=32526.96, stdev=38498.18
+     lat (usec): min=67, max=619696, avg=32527.15, stdev=38498.19
+    clat percentiles (usec):
+     |  1.00th=[  852],  5.00th=[ 2768], 10.00th=[ 4256], 20.00th=[ 7072],
+     | 30.00th=[10432], 40.00th=[14656], 50.00th=[19328], 60.00th=[26496],
+     | 70.00th=[36096], 80.00th=[50432], 90.00th=[77312], 95.00th=[104960],
+     | 99.00th=[179200], 99.50th=[209920], 99.90th=[309248], 99.95th=[428032],
+     | 99.99th=[618496]
+  write: io=278048KB, bw=4631.5KB/s, iops=289, runt= 60040msec
+    clat (usec): min=282, max=581078, avg=1619.75, stdev=7980.64
+     lat (usec): min=282, max=581079, avg=1620.22, stdev=7980.65
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  390], 10.00th=[  418], 20.00th=[  450],
+     | 30.00th=[  498], 40.00th=[  676], 50.00th=[  884], 60.00th=[ 1160],
+     | 70.00th=[ 1496], 80.00th=[ 2064], 90.00th=[ 3152], 95.00th=[ 4256],
+     | 99.00th=[ 7840], 99.50th=[11072], 99.90th=[29568], 99.95th=[195584],
+     | 99.99th=[577536]
+    lat (usec) : 100=0.03%, 250=0.01%, 500=14.97%, 750=6.77%, 1000=6.12%
+    lat (msec) : 2=12.91%, 4=10.62%, 10=12.51%, 20=11.33%, 50=14.44%
+    lat (msec) : 100=7.44%, 250=2.71%, 500=0.10%, 750=0.03%
+  cpu          : usr=0.02%, sys=0.17%, ctx=35007, majf=0, minf=25
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=17584/w=17378/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=281344KB, aggrb=4685KB/s, minb=4685KB/s, maxb=4685KB/s, mint=60040msec, maxt=60040msec
+  WRITE: io=278048KB, aggrb=4631KB/s, minb=4631KB/s, maxb=4631KB/s, mint=60040msec, maxt=60040msec
+
+Disk stats (read/write):
+  sdj: ios=17584/17346, merge=0/0, ticks=599992/27651, in_queue=628179, util=99.83%
+================== Data disk NO.8 End ====================
+
+
+========= Data Disk NO.9 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_9: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_9: (groupid=0, jobs=10): err= 0: pid=83816: Sun Mar 27 15:12:38 2022
+  read : io=284448KB, bw=4731.9KB/s, iops=295, runt= 60114msec
+    clat (usec): min=65, max=907223, avg=32230.07, stdev=39588.17
+     lat (usec): min=65, max=907224, avg=32230.26, stdev=39588.17
+    clat percentiles (usec):
+     |  1.00th=[  884],  5.00th=[ 2704], 10.00th=[ 4128], 20.00th=[ 7072],
+     | 30.00th=[10304], 40.00th=[14528], 50.00th=[19328], 60.00th=[26240],
+     | 70.00th=[35072], 80.00th=[49920], 90.00th=[75264], 95.00th=[103936],
+     | 99.00th=[175104], 99.50th=[214016], 99.90th=[329728], 99.95th=[610304],
+     | 99.99th=[905216]
+  write: io=279904KB, bw=4656.3KB/s, iops=291, runt= 60114msec
+    clat (usec): min=281, max=579266, avg=1559.16, stdev=8019.55
+     lat (usec): min=282, max=579267, avg=1559.69, stdev=8019.55
+    clat percentiles (usec):
+     |  1.00th=[  314],  5.00th=[  386], 10.00th=[  418], 20.00th=[  450],
+     | 30.00th=[  494], 40.00th=[  668], 50.00th=[  868], 60.00th=[ 1128],
+     | 70.00th=[ 1464], 80.00th=[ 2040], 90.00th=[ 3056], 95.00th=[ 4128],
+     | 99.00th=[ 6624], 99.50th=[ 8256], 99.90th=[19584], 99.95th=[199680],
+     | 99.99th=[577536]
+    lat (usec) : 100=0.03%, 250=0.02%, 500=15.18%, 750=6.87%, 1000=6.10%
+    lat (msec) : 2=12.86%, 4=10.68%, 10=12.43%, 20=11.06%, 50=14.72%
+    lat (msec) : 100=7.28%, 250=2.64%, 500=0.09%, 750=0.03%, 1000=0.01%
+  cpu          : usr=0.03%, sys=0.17%, ctx=35312, majf=0, minf=32
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=17778/w=17494/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=284448KB, aggrb=4731KB/s, minb=4731KB/s, maxb=4731KB/s, mint=60114msec, maxt=60114msec
+  WRITE: io=279904KB, aggrb=4656KB/s, minb=4656KB/s, maxb=4656KB/s, mint=60114msec, maxt=60114msec
+
+Disk stats (read/write):
+  sdk: ios=17820/17494, merge=0/0, ticks=599335/26832, in_queue=626293, util=99.83%
+================== Data disk NO.9 End ====================
+
+
+========= Data Disk NO.10 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_10: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_10: (groupid=0, jobs=10): err= 0: pid=83796: Sun Mar 27 15:12:37 2022
+  read : io=267040KB, bw=4447.2KB/s, iops=277, runt= 60047msec
+    clat (usec): min=63, max=511546, avg=21977.79, stdev=23329.92
+     lat (usec): min=63, max=511546, avg=21978.00, stdev=23329.92
+    clat percentiles (usec):
+     |  1.00th=[  402],  5.00th=[ 2384], 10.00th=[ 4256], 20.00th=[ 6816],
+     | 30.00th=[ 9408], 40.00th=[12224], 50.00th=[15936], 60.00th=[20096],
+     | 70.00th=[25984], 80.00th=[33536], 90.00th=[46336], 95.00th=[58624],
+     | 99.00th=[93696], 99.50th=[117248], 99.90th=[238592], 99.95th=[395264],
+     | 99.99th=[509952]
+  write: io=264384KB, bw=4402.1KB/s, iops=275, runt= 60047msec
+    clat (usec): min=276, max=474041, avg=14127.45, stdev=17659.76
+     lat (usec): min=276, max=474042, avg=14128.15, stdev=17659.76
+    clat percentiles (usec):
+     |  1.00th=[  322],  5.00th=[  342], 10.00th=[  378], 20.00th=[  644],
+     | 30.00th=[ 1144], 40.00th=[ 2768], 50.00th=[ 7520], 60.00th=[14016],
+     | 70.00th=[20352], 80.00th=[27520], 90.00th=[36608], 95.00th=[44288],
+     | 99.00th=[60672], 99.50th=[69120], 99.90th=[107008], 99.95th=[205824],
+     | 99.99th=[456704]
+    lat (usec) : 100=0.03%, 250=0.02%, 500=8.34%, 750=4.06%, 1000=2.94%
+    lat (msec) : 2=5.33%, 4=5.48%, 10=16.74%, 20=21.61%, 50=29.86%
+    lat (msec) : 100=5.14%, 250=0.40%, 500=0.06%, 750=0.01%
+  cpu          : usr=0.03%, sys=0.18%, ctx=33247, majf=0, minf=19
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=16690/w=16524/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=267040KB, aggrb=4447KB/s, minb=4447KB/s, maxb=4447KB/s, mint=60047msec, maxt=60047msec
+  WRITE: io=264384KB, aggrb=4402KB/s, minb=4402KB/s, maxb=4402KB/s, mint=60047msec, maxt=60047msec
+
+Disk stats (read/write):
+  sdl: ios=16698/16495, merge=0/0, ticks=379067/231768, in_queue=611022, util=99.86%
+================== Data disk NO.10 End ====================
+
+
+========= Data Disk NO.11 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_11: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_11: (groupid=0, jobs=10): err= 0: pid=83826: Sun Mar 27 15:12:38 2022
+  read : io=286560KB, bw=4769.5KB/s, iops=298, runt= 60082msec
+    clat (usec): min=62, max=612273, avg=32017.96, stdev=37819.25
+     lat (usec): min=63, max=612274, avg=32018.14, stdev=37819.26
+    clat percentiles (usec):
+     |  1.00th=[  860],  5.00th=[ 2704], 10.00th=[ 4192], 20.00th=[ 7072],
+     | 30.00th=[10304], 40.00th=[14656], 50.00th=[19328], 60.00th=[26496],
+     | 70.00th=[35584], 80.00th=[49408], 90.00th=[74240], 95.00th=[101888],
+     | 99.00th=[175104], 99.50th=[207872], 99.90th=[321536], 99.95th=[440320],
+     | 99.99th=[610304]
+  write: io=282352KB, bw=4699.5KB/s, iops=293, runt= 60082msec
+    clat (usec): min=270, max=572581, avg=1515.74, stdev=7542.74
+     lat (usec): min=271, max=572581, avg=1516.27, stdev=7542.75
+    clat percentiles (usec):
+     |  1.00th=[  318],  5.00th=[  386], 10.00th=[  414], 20.00th=[  446],
+     | 30.00th=[  486], 40.00th=[  660], 50.00th=[  852], 60.00th=[ 1112],
+     | 70.00th=[ 1416], 80.00th=[ 1992], 90.00th=[ 3024], 95.00th=[ 4080],
+     | 99.00th=[ 7072], 99.50th=[ 8768], 99.90th=[16320], 99.95th=[195584],
+     | 99.99th=[569344]
+    lat (usec) : 100=0.04%, 250=0.01%, 500=15.66%, 750=6.65%, 1000=6.39%
+    lat (msec) : 2=12.75%, 4=10.24%, 10=12.37%, 20=11.14%, 50=14.89%
+    lat (msec) : 100=7.18%, 250=2.56%, 500=0.09%, 750=0.03%
+  cpu          : usr=0.03%, sys=0.17%, ctx=35619, majf=0, minf=27
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=17910/w=17647/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=286560KB, aggrb=4769KB/s, minb=4769KB/s, maxb=4769KB/s, mint=60082msec, maxt=60082msec
+  WRITE: io=282352KB, aggrb=4699KB/s, minb=4699KB/s, maxb=4699KB/s, mint=60082msec, maxt=60082msec
+
+Disk stats (read/write):
+  sdm: ios=17952/17647, merge=0/0, ticks=609963/26266, in_queue=636295, util=99.83%
+================== Data disk NO.11 End ====================
+
+
+========= Data Disk NO.12 Read And Write Begin  2022-03-27 15:11:37 ==========
+mytest_12: (g=0): rw=randrw, bs=16K-16K/16K-16K/16K-16K, ioengine=psync, iodepth=1
+...
+fio-2.16
+Starting 10 threads
+
+mytest_12: (groupid=0, jobs=10): err= 0: pid=83836: Sun Mar 27 15:12:38 2022
+  read : io=33743MB, bw=575862KB/s, iops=35991, runt= 60002msec
+    clat (usec): min=48, max=11299, avg=236.07, stdev=124.74
+     lat (usec): min=48, max=11299, avg=236.21, stdev=124.74
+    clat percentiles (usec):
+     |  1.00th=[  117],  5.00th=[  131], 10.00th=[  141], 20.00th=[  161],
+     | 30.00th=[  179], 40.00th=[  197], 50.00th=[  211], 60.00th=[  235],
+     | 70.00th=[  262], 80.00th=[  294], 90.00th=[  346], 95.00th=[  398],
+     | 99.00th=[  516], 99.50th=[  596], 99.90th=[ 2064], 99.95th=[ 2416],
+     | 99.99th=[ 2896]
+  write: io=33730MB, bw=575633KB/s, iops=35977, runt= 60002msec
+    clat (usec): min=17, max=11289, avg=38.13, stdev=22.15
+     lat (usec): min=17, max=11290, avg=38.61, stdev=22.18
+    clat percentiles (usec):
+     |  1.00th=[   28],  5.00th=[   30], 10.00th=[   31], 20.00th=[   32],
+     | 30.00th=[   33], 40.00th=[   35], 50.00th=[   36], 60.00th=[   38],
+     | 70.00th=[   40], 80.00th=[   43], 90.00th=[   48], 95.00th=[   53],
+     | 99.00th=[   65], 99.50th=[   70], 99.90th=[   83], 99.95th=[   91],
+     | 99.99th=[  137]
+    lat (usec) : 20=0.01%, 50=45.78%, 100=4.21%, 250=33.11%, 500=16.28%
+    lat (usec) : 750=0.45%, 1000=0.03%
+    lat (msec) : 2=0.08%, 4=0.05%, 10=0.01%, 20=0.01%
+  cpu          : usr=2.84%, sys=12.42%, ctx=4317641, majf=0, minf=1111
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued    : total=r=2159553/w=2158697/d=0, short=r=0/w=0/d=0, drop=r=0/w=0/d=0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: io=33743MB, aggrb=575861KB/s, minb=575861KB/s, maxb=575861KB/s, mint=60002msec, maxt=60002msec
+  WRITE: io=33730MB, aggrb=575633KB/s, minb=575633KB/s, maxb=575633KB/s, mint=60002msec, maxt=60002msec
+
+Disk stats (read/write):
+  nvme1n1: ios=2152996/2152002, merge=0/0, ticks=477309/40005, in_queue=533725, util=100.00%
+================== Data disk NO.12 End ====================
+
+

@@ -1,0 +1,11 @@
+=============  MEM Stress Check Begin  2022-03-27 15:08:46 ================
+memtester version 4.5.1 (64bit)
+Copyright (C) 20012020 Charles Cazabon.
+Licensed under the GNU General Public License version 2 (only).
+
+pagesize is 4096
+pagesizemask is 0xfffffffffffff000
+want 579148MB (607280693248 bytes)
+got  579148MB (607280693248 bytes), trying mlock ...
+
+==============  MEM Stress Check End  2022-03-27 15:09:47 =================

@@ -1,0 +1,8 @@
+=============  CPU MCE Check Begin  2022-03-27 14:28:32 ================
+{'comand': 'ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-03-27 14:28:32 =================
+->>> CPU MCE PASS 
+=============  MEM ECC Check Begin  2022-03-27 14:37:48 ================
+{'comand': 'ipmitool sel list', 'cmd_infor': 'SEL has no entries'}
+==============  MEM ECC Check End  2022-03-27 14:37:48 =================
+->>> MEM ECC PASS 
