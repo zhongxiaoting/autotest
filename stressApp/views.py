@@ -101,7 +101,7 @@ def get_hdd_log():
     return response_data
 
 
-# 检查og是否错误
+# 检查log是否错误
 def hdd_result_check():
     with open(c.ALL_DISKS_LOG_PATH, "r+") as f:
         data = f.read()

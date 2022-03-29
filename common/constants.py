@@ -43,3 +43,6 @@ ALL_DISKS_LOG_PATH = LOG_PATH + '/disks_all.log'
 # 2. run time
 ###############
 RUN_SECONDS = 60
+
+# wait lan speed time
+WAIT_LAN_SPEED_TIME = 10

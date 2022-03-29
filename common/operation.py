@@ -3,6 +3,7 @@
 
 
 # 检查进程
+import os.path
 import subprocess
 
 
@@ -13,3 +14,7 @@ def check_mem_pid():
     else:
         return statusoutput[1]
 
+def remove_log(path):
+    if os.path.exists(path):
+        os.remove(path)
+    return
