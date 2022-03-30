@@ -21,5 +21,5 @@ urlpatterns = [
     path('', include('serversApp.urls', namespace='serversApp')),
     path('api/infor/', include('informationApp.urls', namespace='informationApp')),
     path('api/stress/', include('stressApp.urls', namespace='stressApp')),
-    # path('api/final/', include('finalApp.urls', namespace='finalApp')),
+    path('api/final/', include('finalApp.urls', namespace='finalApp')),
 ]

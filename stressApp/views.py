@@ -94,7 +94,7 @@ def get_hdd_log():
         read_and_write_hdd_log()
         hdd_result = hdd_result_check()
         if hdd_result:
-            response_data = {'hddd_log': hdd_result, "status": "FAIL"}
+            response_data = {'hdd_log': hdd_result, "status": "FAIL"}
         else:
             f = open(c.ALL_DISKS_LOG_PATH, "r")
             response_data = {"hdd_log": f, "status": "PASS"}

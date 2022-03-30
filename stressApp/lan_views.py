@@ -26,12 +26,12 @@ def run_item(request):
 # 读取网卡日志
 @api_view(['GET'])
 def get_lan_log(request):
-    hdd_result = lan_result_check()
-    if hdd_result:
-        response_data = {'hddd_log': hdd_result, "status": "FAIL"}
+    lan_result = lan_result_check()
+    if lan_result:
+        response_data = {'lan_log': lan_result, "status": "FAIL"}
     else:
         f = open(c.LAN_STRESS_LOG_PATH, "r")
-        response_data = {"hdd_log": f, "status": "PASS"}
+        response_data = {"lan_log": f, "status": "PASS"}
     return Response(response_data)
 
 
@@ -62,19 +62,19 @@ def start_lan_run():
     # lan_while.setDaemon(True)
     lan_while.start()
     time.sleep(10)
-    pktgen = h.lan_cmd("cd /home/autotest/shell && ./pktgen.sh")
+    pktgen = h.cmd_msg("cd /home/autotest/shell && ./pktgen.sh")
     write_log(pktgen)
 
 
 def run_lan_while():
-    h.lan_cmd("cd /home/autotest/shell && chmod +x lan_while.sh && ./lan_while.sh")
+    h.cmd_msg("cd /home/autotest/shell && chmod +x lan_while.sh && ./lan_while.sh")
     print("lan_while.sh End!")
     return
 
 
 # choose server models
 def check_product_name():
-    product_name_ = h.lan_cmd("ipmitool fru print | grep 'Product Name' ")
+    product_name_ = h.cmd_msg("ipmitool fru print | grep 'Product Name' ")
     product_name = product_name_.rsplit(":")[1]
     name = product_name.strip()
     return name
@@ -82,9 +82,9 @@ def check_product_name():
 
 # Check whether the network cable is connected
 def check_network_link():
-    enps = h.lan_cmd('ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"').split('\n')
+    enps = h.cmd_msg('ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"').split('\n')
     for enp in enps:
-        eth_infor = h.lan_cmd("ethtool {}".format(enp))
+        eth_infor = h.cmd_msg("ethtool {}".format(enp))
         link_detected = re.search("Link detected: (.*)", eth_infor).group()
         link_detected = link_detected.rsplit(":")[1].strip()
         # full_speed = re.search("Speed: (.*)", eth_infor).group()
@@ -103,7 +103,7 @@ def check_speed():
     # duration_time = 50
     day_time = datetime.datetime.now() + datetime.timedelta(seconds=c.RUN_SECONDS)
     day_time = day_time.strftime("%Y-%m-%d %H:%M:%S")
-    enps = h.lan_cmd('ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"').split('\n')
+    enps = h.cmd_msg('ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"').split('\n')
     while True:
         now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         if day_time <= now_time:
@@ -112,12 +112,12 @@ def check_speed():
         write_log("=============== NO." + str(
             count) + " Begin Network Speech Check  " + get_local_time_string() + " =================")
         for enp in enps:
-            eth_infor = h.lan_cmd("ethtool {}".format(enp))
+            eth_infor = h.cmd_msg("ethtool {}".format(enp))
             full_speed = re.search("Speed: (.*)", eth_infor).group()
             full_speed = full_speed.rsplit(":")[1].strip()
             aa = 1
             while aa:
-                enp_result = h.lan_cmd("cat /proc/net/pktgen/" + enp)
+                enp_result = h.cmd_msg("cat /proc/net/pktgen/" + enp)
                 result1 = re.search("OK", enp_result)
                 if result1 is None:
                     time.sleep(3)
@@ -173,6 +173,7 @@ def write_log(s):
         f.flush()
         os.fsync(f)
 
-
 def get_local_time_string():
     return time.strftime('%04Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+
+

@@ -50,7 +50,7 @@ def run_cmd(cmd):
     return cmd_msg
 
 
-def lan_cmd(cmd):
+def cmd_msg(cmd):
     statusoutput = subprocess.getstatusoutput(cmd)
     # 命令执行成功，有返回值或者没有返回值
     if statusoutput[0] == 0 or statusoutput[0] == 1:
@@ -64,4 +64,10 @@ def lan_cmd(cmd):
 # 正常停止lan测试
 def lan_formal_quit():
     subprocess.getstatusoutput("pkill -9 lan_while.sh")
+    return
+
+
+# 测试出现错误，停止测试
+def run_fail():
+    sys.exit(0)
     return

@@ -38,6 +38,7 @@ MEM_STRESS_LOG_PATH = LOG_PATH + '/mem_stress.log'
 HDD_STRESS_LOG_PATH = LOG_PATH
 LAN_STRESS_LOG_PATH = LOG_PATH + '/lan_stress.log'
 ALL_DISKS_LOG_PATH = LOG_PATH + '/disks_all.log'
+BLACK_LIST_LOG_PATH = LOG_PATH + '/black_check.log'
 
 ###############
 # 2. run time
