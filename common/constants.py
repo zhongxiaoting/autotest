@@ -40,6 +40,10 @@ LAN_STRESS_LOG_PATH = LOG_PATH + '/lan_stress.log'
 ALL_DISKS_LOG_PATH = LOG_PATH + '/disks_all.log'
 BLACK_LIST_LOG_PATH = LOG_PATH + '/black_check.log'
 
+# informationApp log
+memory_info = LOG_PATH + 'memory_info.log'
+Network_info = TEST_DIR + '/log/' + sn + '/network_all_info'
+
 ###############
 # 2. run time
 ###############

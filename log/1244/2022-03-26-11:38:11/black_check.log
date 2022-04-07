@@ -1,5 +1,5 @@
 
-**************************************** Check HDD and SSD  2022-03-30 16:20:07  ****************************************
+**************************************** Check HDD and SSD  2022-04-01 15:50:41  ****************************************
 the check hdd is go :SMART overall-health self-assessment test result: PASSED
 Serial Number:    S45PNC0R345174
 Reallocated_Sector_Ct is OK
@@ -19,15 +19,29 @@ Current_Pending_Sector is OK
 the check hdd is go :SMART overall-health self-assessment test result: PASSED
 Serial Number:    5PJE2TKD
 Reallocated_Sector_Ct is OK
+check 3b:00.0 AER start
 Current_Pending_Sector is OK
+check 3b:00.0 AER end
+check 3b:00.1 AER start
+check 3b:00.1 AER end
+check 3c:00.0 AER start
+check 3c:00.0 AER end
 the check hdd is go :SMART overall-health self-assessment test result: PASSED
 Serial Number:    5PH3P0ZD
 Reallocated_Sector_Ct is OK
 Current_Pending_Sector is OK
+check 3d:03.0 AER start
+check 3d:03.0 AER end
+check 3e:00.0 AER start
+check 3e:00.0 AER end
 the check hdd is go :SMART overall-health self-assessment test result: PASSED
 Serial Number:    AAHL55HH
 Reallocated_Sector_Ct is OK
 Current_Pending_Sector is OK
+check 3e:00.2 AER start
+check 3e:00.2 AER end
+check 3e:00.3 AER start
+check 3e:00.3 AER end
 the check hdd is go :SMART overall-health self-assessment test result: PASSED
 Serial Number:    8CKGSNUE
 Reallocated_Sector_Ct is OK
@@ -49,7 +63,7 @@ Serial Number:    5PH3434D
 Reallocated_Sector_Ct is OK
 Current_Pending_Sector is OK
 
-****************************************     Check NVME  2022-03-30 16:20:08     ****************************************
+****************************************     Check NVME  2022-04-01 15:50:43     ****************************************
 the check nvme is go,this is :nvme0n1
 critical_warning is OK
 available_spare is OK
@@ -60,20 +74,16 @@ available_spare is OK
 percentage_used is OK
 Check nvme successful
 
-****************************************     Check MCE  2022-03-30 16:20:09      ****************************************
-['Mar 27 14:18:37 localhost libvirtd: 2022-03-27 06:18:37.533+0000: 2125: error : virFirewallApplyRuleFirewallD:790 : The name org.fedoraproject.FirewallD1 was not provided by any .service files', 'Mar 27 14:21:09 localhost firefox.desktop: [Parent 8329, Gecko_IOThread] WARNING: pipe error (128): Connection reset by peer: file /builddir/build/BUILD/firefox-68.10.0/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 358', 'Mar 28 12:14:41 localhost com.redhat.imsettings: [ 1648440881.284674]: GLib-GIO[7282]: CRITICAL **: Error while sending AddMatch() message: The connection is closed', 'Mar 28 12:14:41 localhost com.redhat.imsettings: [ 1648440881.284913]: GLib-GIO[7282]: CRITICAL **: Error while sending AddMatch() message: The connection is closed', 'Mar 28 12:14:41 localhost gnome-session: gnome-session-binary[7229]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 28 12:14:41 localhost gnome-session-binary[7229]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 28 14:18:44 localhost kernel: ERST: Error Record Serialization Table (ERST) support is initialized.', 'Mar 28 14:18:44 localhost kernel: BERT: Boot Error Record Table support is disabled. Enable it by using bert_enable as kernel parameter.', 'Mar 28 14:18:49 localhost lvm: pvscan[1142] WARNING: lvmetad is being updated, retrying (setup) for 10 more seconds.', 'Mar 28 14:18:52 localhost augenrules: failure 1', 'Mar 28 14:18:52 localhost augenrules: lost 0', 'Mar 28 14:18:52 localhost augenrules: failure 1', 'Mar 28 14:18:52 localhost augenrules: lost 0', "Mar 28 14:18:52 localhost smartd[1503]: Device: /dev/bus/0 [megaraid_disk_10] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 28 14:18:52 localhost oray_rundaemon: Error: sendto', 'Mar 28 14:18:52 localhost oray_rundaemon: Error: sendto', "Mar 28 14:18:52 localhost smartd[1503]: Device: /dev/bus/0 [megaraid_disk_18] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 28 14:19:00 localhost network: Bringing up interface enp62s0f2:  Error: Connection activation failed: No suitable device found for this connection (device enp62s0f2 not available because device has no carrier).', 'Mar 28 14:19:06 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 28 14:32:57 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 28 14:32:58 localhost journal: not GsPlugin error from plugin repos g-key-file-error-quark:1: Key file contains line “        file:///media/cdrom/” which is not a key-value pair, group, or comment', 'Mar 28 14:32:58 localhost journal: Could not delete runtime/persistent state file: Error removing file /root/.local/share/gnome-shell/notifications: No such file or directory', 'Mar 28 17:27:21 localhost libvirtd: 2022-03-28 09:27:21.193+0000: 2082: error : virFirewallApplyRuleFirewallD:790 : The name org.fedoraproject.FirewallD1 was not provided by any .service files', 'Mar 29 12:09:33 localhost com.redhat.imsettings: [ 1648526973.716898]: GLib-GIO[3597]: CRITICAL **: Error while sending AddMatch() message: The connection is closed', 'Mar 29 12:09:33 localhost com.redhat.imsettings: [ 1648526973.717103]: GLib-GIO[3597]: CRITICAL **: Error while sending AddMatch() message: The connection is closed', 'Mar 29 12:09:33 localhost gnome-session-binary[3538]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 29 12:09:33 localhost gnome-session: gnome-session-binary[3538]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 29 13:47:42 localhost kernel: ERST: Error Record Serialization Table (ERST) support is initialized.', 'Mar 29 13:47:42 localhost kernel: BERT: Boot Error Record Table support is disabled. Enable it by using bert_enable as kernel parameter.', 'Mar 29 13:47:47 localhost lvm: pvscan[1150] WARNING: lvmetad is being updated, retrying (setup) for 10 more seconds.', 'Mar 29 13:47:49 localhost augenrules: failure 1', 'Mar 29 13:47:49 localhost augenrules: lost 0', 'Mar 29 13:47:49 localhost augenrules: failure 1', 'Mar 29 13:47:49 localhost augenrules: lost 0', "Mar 29 13:47:49 localhost smartd[1555]: Device: /dev/bus/0 [megaraid_disk_10] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 29 13:47:50 localhost oray_rundaemon: Error: sendto', 'Mar 29 13:47:50 localhost oray_rundaemon: Error: sendto', "Mar 29 13:47:50 localhost smartd[1555]: Device: /dev/bus/0 [megaraid_disk_18] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 29 13:47:57 localhost network: Bringing up interface enp62s0f2:  Error: Connection activation failed: No suitable device found for this connection (device enp62s0f2 not available because device has no carrier).', 'Mar 29 13:48:02 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 29 13:52:01 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 29 13:52:02 localhost journal: not GsPlugin error from plugin repos g-key-file-error-quark:1: Key file contains line “        file:///media/cdrom/” which is not a key-value pair, group, or comment', 'Mar 29 13:52:02 localhost journal: Could not delete runtime/persistent state file: Error removing file /root/.local/share/gnome-shell/notifications: No such file or directory', 'Mar 30 10:24:00 localhost com.redhat.imsettings: [ 1648607040.637299]: GLib-GIO[3473]: CRITICAL **: Error while sending AddMatch() message: The connection is closed', 'Mar 30 10:24:00 localhost com.redhat.imsettings: [ 1648607040.637918]: GLib-GIO[3473]: CRITICAL **: Error while sending AddMatch() message: The connection is closed', 'Mar 30 10:24:00 localhost gnome-session: gnome-session-binary[3420]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 30 10:24:00 localhost gnome-session-binary[3420]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 30 10:37:42 localhost kernel: ERST: Error Record Serialization Table (ERST) support is initialized.', 'Mar 30 10:37:42 localhost kernel: BERT: Boot Error Record Table support is disabled. Enable it by using bert_enable as kernel parameter.', 'Mar 30 10:37:47 localhost lvm: pvscan[1155] WARNING: lvmetad is being updated, retrying (setup) for 10 more seconds.', 'Mar 30 10:37:49 localhost augenrules: failure 1', 'Mar 30 10:37:49 localhost augenrules: lost 0', 'Mar 30 10:37:49 localhost augenrules: failure 1', 'Mar 30 10:37:49 localhost augenrules: lost 0', "Mar 30 10:37:50 localhost smartd[1534]: Device: /dev/bus/0 [megaraid_disk_10] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 30 10:37:50 localhost oray_rundaemon: Error: sendto', 'Mar 30 10:37:50 localhost oray_rundaemon: Error: sendto', "Mar 30 10:37:50 localhost smartd[1534]: Device: /dev/bus/0 [megaraid_disk_18] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 30 10:37:57 localhost network: Bringing up interface enp62s0f2:  Error: Connection activation failed: No suitable device found for this connection (device enp62s0f2 not available because device has no carrier).', 'Mar 30 10:38:02 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 30 10:42:29 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 30 10:42:30 localhost journal: not GsPlugin error from plugin repos g-key-file-error-quark:1: Key file contains line “        file:///media/cdrom/” which is not a key-value pair, group, or comment', 'Mar 30 10:42:30 localhost journal: Could not delete runtime/persistent state file: Error removing file /root/.local/share/gnome-shell/notifications: No such file or directory', 'Mar 30 12:19:08 localhost sunlogin.desktop: [main_dlg.xml] - signal prelogin status 2.0, error: 0.0', 'Mar 30 13:20:17 localhost kernel: ERST: Error Record Serialization Table (ERST) support is initialized.', 'Mar 30 13:20:17 localhost kernel: BERT: Boot Error Record Table support is disabled. Enable it by using bert_enable as kernel parameter.', 'Mar 30 13:20:22 localhost lvm: pvscan[1159] WARNING: lvmetad is being updated, retrying (setup) for 10 more seconds.', 'Mar 30 13:20:24 localhost augenrules: failure 1', 'Mar 30 13:20:24 localhost augenrules: lost 0', 'Mar 30 13:20:24 localhost augenrules: failure 1', 'Mar 30 13:20:24 localhost augenrules: lost 0', "Mar 30 13:20:24 localhost smartd[1533]: Device: /dev/bus/0 [megaraid_disk_10] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 30 13:20:24 localhost oray_rundaemon: Error: sendto', 'Mar 30 13:20:24 localhost oray_rundaemon: Error: sendto', "Mar 30 13:20:25 localhost smartd[1533]: Device: /dev/bus/0 [megaraid_disk_18] [SAT], can't monitor Offline_Uncorrectable count - no Attribute 198", 'Mar 30 13:20:32 localhost network: Bringing up interface enp62s0f2:  Error: Connection activation failed: No suitable device found for this connection (device enp62s0f2 not available because device has no carrier).', 'Mar 30 13:20:37 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 30 13:23:12 localhost gnome-session: gnome-session-binary[2938]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 30 13:23:12 localhost gnome-session-binary[2938]: WARNING: Lost name on bus: org.gnome.SessionManager', 'Mar 30 13:23:15 localhost journal: Error looking up permission: GDBus.Error:org.freedesktop.portal.Error.NotFound: No entry for geolocation', 'Mar 30 13:23:16 localhost journal: not GsPlugin error from plugin repos g-key-file-error-quark:1: Key file contains line “        file:///media/cdrom/” which is not a key-value pair, group, or comment']
-
-****************************************   Check Ethernet  2022-03-30 16:20:10   ****************************************
+****************************************   Check Ethernet  2022-04-01 15:50:43   ****************************************
 enp24s0f0 network port Bit number: 0
 enp24s0f1 network port Bit number: 0
 enp59s0f0 network port Bit number: 0
 enp59s0f1 network port Bit number: 0
-enp62s0f2 network port Bit number: 0
 enp62s0f3 network port Bit number: 0
 network ethernet successful
 
-****************************************     Check PCIE  2022-03-30 16:20:10     ****************************************
-->> There are ERRORS in the project, Please check！check 00:1c.5 AER start
+****************************************     Check PCIE  2022-04-01 15:50:43     ****************************************
+check 00:1c.5 AER start
 check 00:1c.5 AER end
 check 02:00.0 AER start
 check 02:00.0 AER end
@@ -81,7 +91,11 @@ check 17:00.0 AER start
 check 17:00.0 AER end
 check 17:02.0 AER start
 check 17:02.0 AER end
-->> There are ERRORS in the project, Please check！check 18:00.0 AER start
+check ae:02.0 AER start
+check ae:02.0 AER end
+check ae:03.0 AER start
+check ae:03.0 AER end
+check 18:00.0 AER start
 check 18:00.0 AER end
 check 18:00.1 AER start
 check 18:00.1 AER end
@@ -91,6 +105,13 @@ check 3a:00.0 AER start
 check 3a:00.0 AER end
 check 3a:02.0 AER start
 check 3a:02.0 AER end
+check af:00.0 AER start
+check af:00.0 AER end
+check b0:00.0 AER start
+check b0:00.0 AER end
+check PCIE AER Bit normal
+
+****************************************      Check SEL  2022-04-01 15:50:49     ****************************************
 check 3b:00.0 AER start
 check 3b:00.0 AER end
 check 3b:00.1 AER start
@@ -105,7 +126,15 @@ check 3e:00.2 AER start
 check 3e:00.2 AER end
 check 3e:00.3 AER start
 check 3e:00.3 AER end
-->> There are ERRORS in the project, Please check！check ae:02.0 AER start
+blacklist SEL key successful
+
+****************************************  Check MCE AND ECC  2022-04-01 15:50:49  ****************************************
+CPU MCE successful
+
+****************************************      Check SEL  2022-04-01 15:50:50     ****************************************
+blacklist SEL key successful
+all black check is successful
+check ae:02.0 AER start
 check ae:02.0 AER end
 check ae:03.0 AER start
 check ae:03.0 AER end
@@ -115,12 +144,12 @@ check b0:00.0 AER start
 check b0:00.0 AER end
 check PCIE AER Bit normal
 
-****************************************      Check SEL  2022-03-30 16:20:21     ****************************************
+****************************************      Check SEL  2022-04-01 15:50:55     ****************************************
 blacklist SEL key successful
 
-****************************************  Check MCE AND ECC  2022-03-30 16:20:21  ****************************************
+****************************************  Check MCE AND ECC  2022-04-01 15:50:55  ****************************************
 CPU MCE successful
 
-****************************************      Check SEL  2022-03-30 16:20:22     ****************************************
+****************************************      Check SEL  2022-04-01 15:50:55     ****************************************
 blacklist SEL key successful
-->> There are ERRORS in the project, Please check！
+all black check is successful

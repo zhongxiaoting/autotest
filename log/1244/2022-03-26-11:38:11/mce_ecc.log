@@ -10,3 +10,7 @@
 {'comand': 'ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
 ==============  CPU MCE Check End  2022-03-29 10:53:09 =================
 ->>> CPU MCE PASS 
+=============  CPU MCE Check Begin  2022-04-01 10:23:14 ================
+{'comand': 'ras-mc-ctl --summary', 'cmd_infor': 'No Memory errors.\n\nNo PCIe AER errors.\n\nNo Extlog errors.\nNo MCE errors.'}
+==============  CPU MCE Check End  2022-04-01 10:23:14 =================
+->>> CPU MCE PASS 

@@ -1,6 +1,8 @@
 # coding=utf-8
+import json
 import re
 import subprocess
+import sys
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -15,7 +17,7 @@ def run_item(request):
     on.remove_log(c.BLACK_LIST_LOG_PATH)
     check_hdd()
     check_nvme()
-    check_mce_log()
+    # check_mce_log()
     check_ethernet_errors()
     check_PCIE_errors()
     check_SEL()
@@ -24,15 +26,18 @@ def run_item(request):
     return Response(response_data)
 
 
-# 读取日志
+# 读取日志，0为没有运行完成，或者出现错误；1为运行完成
 @api_view(['GET'])
 def get_black_log(request):
+    success = False
     black_result = black_result_check()
-    f = open(c.BLACK_LIST_LOG_PATH, "r")
+    f = open(c.BLACK_LIST_LOG_PATH, "r", encoding="utf-8")
     if black_result:
-        response_data = {'black_log': f, "status": "FAIL"}
+        response_data = {'black_log': f, "status": "FAIL", "final": success}
     else:
-        response_data = {"black_log": f, "status": "PASS"}
+        # if "all black check is successful" in file:
+        #     success = 1
+        response_data = {"black_log": f, "status": "PASS", "final": success}
     return Response(response_data)
 
 
@@ -98,6 +103,7 @@ def check_hdd():
                     else:
                         write_log(sn[1])
                         write_log("Current_Pending_Sector is fail")
+                        h.run_fail()
                         return
                 else:
                     write_log(sn[1])
@@ -136,7 +142,7 @@ def check_hdd():
                         else:
                             write_log(sn[1])
                             write_log("Elements in grown defect list is fail")
-                            return
+                            h.run_fail()
                 else:
                     for line in yp_info[1].split('\n'):
                         if re.search(pgone, line, re.IGNORECASE):
@@ -154,7 +160,7 @@ def check_hdd():
                             else:
                                 write_log(sn[1])
                                 write_log("Reallocated_Sector_Ct is fail")
-                                return
+                                h.run_fail()
                         EE = re.findall(r'(End-to-End_Error(.*))', yp_info[1])
 
                         CP = re.findall(r'(Current_Pending_Sector(.*))', yp_info[1])
@@ -166,10 +172,11 @@ def check_hdd():
                             else:
                                 write_log(sn[1])
                                 write_log("Current_Pending_Sector is fail")
-                                return
+                                h.run_fail()
                     else:
                         write_log(sn[1])
                         write_log("SMART overall-health self-assessment test result is fail")
+                        h.run_fail()
             write_log("Check SSD and HDD successful")
         else:
             write_log("Cannot find the HDD and SSD,Pleace check about")
@@ -194,6 +201,7 @@ def check_nvme():
                 write_log('critical_warning is OK')
             else:
                 write_log("critical_warning is fail")
+                h.run_fail()
             cmd = 'nvme smart-log /dev/%s |grep "available_spare                     :"' % (xxl)
             AS = subprocess.getstatusoutput(cmd)
             AS = re.findall(r'(available_spare(.*))', AS[1])
@@ -203,6 +211,7 @@ def check_nvme():
                 write_log('available_spare is OK')
             else:
                 write_log("available_spare is fail")
+                h.run_fail()
             cmd = 'nvme smart-log /dev/%s |grep "percentage_used"' % (xxl)
             PU = subprocess.getstatusoutput(cmd)
             PU = re.findall(r'(percentage_used(.*))', PU[1])
@@ -212,6 +221,7 @@ def check_nvme():
                 write_log('percentage_used is OK')
             else:
                 write_log("percentage_used is fail")
+                h.run_fail()
         write_log("Check nvme successful")
     else:
         write_log("Cannot find the NVME,Pleace check about.")
@@ -239,7 +249,9 @@ def check_mce_log():
     else:
         write_log(msg_info[1])
     if len(error_log) > 0:
-        write_log(error_log)
+        for log in error_log:
+            write_log(log)
+        h.run_fail()
     else:
         write_log("-->>> MCE Black Check keys PASS")
     return
@@ -273,7 +285,8 @@ def check_ethernet_errors():
 
     if (len(errors_dev) > 0):
         write_log("check network port Bit:" + str(errors_dev))
-        write_log("network port Bit ERROR")
+        write_log("network port Bit error")
+        h.run_fail()
     write_log("network ethernet successful")
     return
 
@@ -318,7 +331,8 @@ def check_PCIE_errors():
                             # self.on_fail(dev)
                 write_log("check %s AER end" % dev)
     if (len(dev_AER) > 0):
-        write_log('check PCIE AER Bit have ERROR')
+        write_log('check PCIE AER Bit have error')
+        h.run_fail()
     else:
         write_log('check PCIE AER Bit normal')
     return
@@ -348,6 +362,7 @@ def check_SEL():
         for sel_list in sel_lists:
             write_log(sel_list)
         write_log("blacklist SEL key error")
+        h.run_fail()
     else:
         write_log("blacklist SEL key successful")
     return
@@ -361,12 +376,14 @@ def check_mce_ecc():
     cpu_mce = cpu_mce_errors(cpu_mec_display)
     if cpu_mce:
         write_log(cpu_mce)
-        write_log("CPU MCE have ERROR")
+        write_log("CPU MCE have error")
+        h.run_fail()
     else:
         write_log("CPU MCE successful")
 
     # 再次检查ECC SEL
     check_SEL()
+    write_log("all black check is successful")
     return
 
 
