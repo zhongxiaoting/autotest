@@ -54,7 +54,7 @@ def check_hdd():
         panfu_list = []
         yingpan_list = []
 
-        cmd = '/opt/MegaRAID/MegaCli/MegaCli64 -LdPdInfo -aALL | grep "Device Id:"'
+        cmd = '/home/autotest/tools/MegaCli64 -LdPdInfo -aALL | grep "Device Id:"'
         hdd_number = h.cmd_msg(cmd).split('\n')
 
         cmd = 'ls /sys/block |grep -Ev "loop*|ram*|nvme|dm"'
