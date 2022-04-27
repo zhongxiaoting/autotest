@@ -25,11 +25,13 @@ def top_log():
     h.run_cmd("setsid timeout {} top -d 10 -n {} -b -i >> {}".format(c.RUN_SECONDS, maxTimes, c.CPU_STRESS_LOG_PATH))
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def stress_check(request):
     subprocess.getstatusoutput("rm -rf " + c.CPU_STRESS_LOG_PATH)
+    b_time = request.body
+    run_time = json.loads(b_time).get("time")
     thread_num = fn.get_thread_num()
-    shell = "./tools/stress -c {} -t {} ".format(thread_num, c.RUN_SECONDS)
+    shell = "./tools/stress -c {} -t {} ".format(thread_num, run_time)
     cpu_write_log("=============  CPU Stress Check Begin  " + get_local_time_string() + " ================")
     cpu_infor = h.cmd_stress(shell)
     t = threading.Thread(target=top_log)
@@ -44,15 +46,18 @@ def stress_check(request):
     else:
         cpu_write_log("->>> CPU Check Fail ")
         cpu_error = h.stress_fail("CPU Stress")
-        cpu_error["cpu_infor"] = cpu_infor
+        cpu_error["cpu_fail"] = cpu_infor
         response_data = {"cpu_stress": cpu_error, "status": "FAIL"}
     return Response(response_data)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def run_mem_check(request):
+    subprocess.getstatusoutput("rm -rf " + c.MEM_STRESS_LOG_PATH)
+    b_time = request.body
+    run_time = json.loads(b_time).get("time")
     mem = int(fn.get_mem() * 0.8)
-    shell = "timeout {} ./tools/memtester {} 1".format(c.RUN_SECONDS, mem)
+    shell = "timeout {} ./tools/memtester {} 1".format(run_time, mem)
     mem_write_log("=============  MEM Stress Check Begin  " + get_local_time_string() + " ================")
     mem_infor = subprocess.getoutput(shell)
     rep = {'\x2d': '', '\x08': '', '\x5c': '', '\x7c': '', '\x2f\x08': ''}
@@ -62,13 +67,20 @@ def run_mem_check(request):
     ret = re.sub("\s*setting\s*\d*\s*|\s*testing\s*\d*\s*", "", outByte)
     mem_write_log(ret)
     mem_write_log("\n" + "==============  MEM Stress Check End  " + get_local_time_string() + " =================")
-    response_data = {"mem_stress": mem_infor, "status": "PASS"}
+    with open(c.MEM_STRESS_LOG_PATH, "r") as f:
+        data = f.read()
+        if "fail" in data or "error" in data or "timeout" in data:
+            response_data = {"mem_stress": ret, "status": "FAIL"}
+        else:
+            response_data = {"mem_stress": ret, "status": "PASS"}
     return Response(response_data)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def run_hdd_check(request):
     subprocess.getstatusoutput("rm -rf " + c.HDD_STRESS_LOG_PATH + "/disk*.log")
+    b_time = request.body
+    value = json.loads(b_time).get("time")
     make_up_raid()
     i = 0
     all_data_disks = dk.remove_os_disk()
@@ -78,12 +90,22 @@ def run_hdd_check(request):
     disk_write_log0("->>> Non-system Disks is : ")
     disk_write_log0(all_data_disks)
     for data_disk in all_data_disks:
-        data_disk_t = threading.Thread(target=random_read_write, args=(data_disk, str(i)))
+        data_disk_t = threading.Thread(target=random_read_write, args=(data_disk, str(i), value))
         data_disk_t.setDaemon(True)
         data_disk_t.start()
         i += 1
     # response_data = {"hdd_waiting": "硬盘正在测试中......", "status": "PASS"}
     response_data = get_hdd_log()
+    return Response(response_data)
+
+
+@api_view(['GET'])
+def stop_stress(request):
+    subprocess.run("pkill -9 memtester", shell=True)
+    subprocess.run("pkill -9 fio", shell=True)
+    subprocess.run("pkill -9 stress", shell=True)
+    subprocess.run("pkill -9 lan_while.sh", shell=True)
+    response_data = {"cmd_infor": "Stress Test is interrupted", "status": "FAIL"}
     return Response(response_data)
 
 
@@ -97,13 +119,14 @@ def get_hdd_log():
             response_data = {'hdd_log': hdd_result, "status": "FAIL"}
         else:
             f = open(c.ALL_DISKS_LOG_PATH, "r")
-            response_data = {"hdd_log": f, "status": "PASS"}
+            response_data = {"hdd_log": f.read(), "status": "PASS"}
+            f.close()
     return response_data
 
 
 # 检查log是否错误
 def hdd_result_check():
-    with open(c.ALL_DISKS_LOG_PATH, "r+") as f:
+    with open(c.ALL_DISKS_LOG_PATH, "a+") as f:
         data = f.read()
         error1 = re.findall("fail", data)
         error2 = re.findall("Fail", data)
@@ -111,8 +134,8 @@ def hdd_result_check():
         error4 = re.findall("ERROR", data)
         error5 = re.findall("FAIL", data)
         if error1 or error2 or error3 or error4 or error5:
-            data.write("->> There are ERRORS in the project, Please check！")
-            response_data = "Stress Check have ERROR, Please check progress!"
+            f.write("->> There are ERRORS in the project, Please check！")
+            response_data = "HDD Stress Check have ERROR, Please check progress!"
             return response_data
         f.flush()
         f.close()
@@ -135,7 +158,7 @@ def make_up_raid():
 
 
 # 对每一个非系统盘进行读写测试
-def random_read_write(data_disk, i):
+def random_read_write(data_disk, i, run_time):
     if int(i) == 0:
         pass
     disk_write_log("========= Data Disk NO." + i + " Read And Write Begin  " + get_local_time_string() + " ==========",
@@ -144,7 +167,7 @@ def random_read_write(data_disk, i):
     shell = "fio -filename={} -direct=1 -iodepth 1" \
             " -thread -rw=randrw -ioengine=psync -bs=16k" \
             " -size=1G -numjobs=10 -runtime={} -group_reporting -time_based" \
-            " -name=mytest_{}".format(data_disk, c.RUN_SECONDS, i)
+            " -name=mytest_{}".format(data_disk, run_time, i)
     hdd_infor = subprocess.getstatusoutput(shell)
     disk_write_log(hdd_infor[1], i)
     disk_write_log("================== Data disk NO." + i + " End ====================", i)
@@ -215,6 +238,7 @@ def disk_write_log(s, i):
 
 # disk all log
 def write_disks_log(s):
+    subprocess.getstatusoutput("rm -rf" + c.ALL_DISKS_LOG_PATH)
     with open(c.ALL_DISKS_LOG_PATH, 'a+') as f:
         f.write(str(s) + '\n')
         f.flush()

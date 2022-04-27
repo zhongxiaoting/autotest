@@ -26,7 +26,7 @@ def stress_fail(name):
     subprocess.run("pkill -9 fio", shell=True)
     subprocess.run("pkill -9 stress", shell=True)
     subprocess.run("pkill -9 lan_while.sh", shell=True)
-    response_data = {"name": infor}
+    response_data = {"cmd_infor": infor}
     return response_data
 
 

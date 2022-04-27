@@ -47,7 +47,7 @@ Network_info = TEST_DIR + '/log/' + sn + '/network_all_info'
 ###############
 # 2. run time
 ###############
-RUN_SECONDS = 60
+RUN_SECONDS = 30
 
 # wait lan speed time
 WAIT_LAN_SPEED_TIME = 10
