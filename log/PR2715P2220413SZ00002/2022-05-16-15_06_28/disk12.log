@@ -1,0 +1,51 @@
+mytest_12: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_12: (groupid=0, jobs=10): err= 0: pid=144651: Tue May 17 01:35:44 2022
+   read: IOPS=37.3k, BW=583MiB/s (611MB/s)(17.1GiB/30002msec)
+    clat (usec): min=44, max=12376, avg=234.11, stdev=127.59
+     lat (usec): min=44, max=12376, avg=234.22, stdev=127.59
+    clat percentiles (usec):
+     |  1.00th=[  115],  5.00th=[  128], 10.00th=[  139], 20.00th=[  157],
+     | 30.00th=[  176], 40.00th=[  194], 50.00th=[  208], 60.00th=[  233],
+     | 70.00th=[  260], 80.00th=[  293], 90.00th=[  347], 95.00th=[  396],
+     | 99.00th=[  519], 99.50th=[  603], 99.90th=[ 2008], 99.95th=[ 2376],
+     | 99.99th=[ 3097]
+   bw (  KiB/s): min=56143, max=64352, per=9.99%, avg=59668.05, stdev=1615.77, samples=591
+   iops        : min= 3508, max= 4022, avg=3729.24, stdev=100.99, samples=591
+  write: IOPS=37.3k, BW=583MiB/s (612MB/s)(17.1GiB/30002msec)
+    clat (usec): min=15, max=11979, avg=30.64, stdev=19.56
+     lat (usec): min=15, max=11980, avg=31.31, stdev=19.57
+    clat percentiles (usec):
+     |  1.00th=[   18],  5.00th=[   19], 10.00th=[   21], 20.00th=[   26],
+     | 30.00th=[   28], 40.00th=[   29], 50.00th=[   30], 60.00th=[   32],
+     | 70.00th=[   33], 80.00th=[   36], 90.00th=[   40], 95.00th=[   45],
+     | 99.00th=[   56], 99.50th=[   61], 99.90th=[   79], 99.95th=[  101],
+     | 99.99th=[  251]
+   bw (  KiB/s): min=52960, max=67136, per=9.99%, avg=59699.56, stdev=2306.71, samples=591
+   iops        : min= 3310, max= 4196, avg=3731.22, stdev=144.18, samples=591
+  lat (usec)   : 20=4.57%, 50=44.34%, 100=1.12%, 250=33.47%, 500=15.87%
+  lat (usec)   : 750=0.45%, 1000=0.03%
+  lat (msec)   : 2=0.09%, 4=0.05%, 10=0.01%, 20=0.01%
+  cpu          : usr=2.55%, sys=8.48%, ctx=2244705, majf=0, minf=680
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1119534,1120006,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=583MiB/s (611MB/s), 583MiB/s-583MiB/s (611MB/s-611MB/s), io=17.1GiB (18.3GB), run=30002-30002msec
+  WRITE: bw=583MiB/s (612MB/s), 583MiB/s-583MiB/s (612MB/s-612MB/s), io=17.1GiB (18.3GB), run=30002-30002msec
+
+Disk stats (read/write):
+  nvme1n1: ios=1112229/1112793, merge=0/0, ticks=247342/20512, in_queue=270869, util=100.00%
+======================== Data disk NO.12 End =========================
+========= Data Disk NO.12 Read And Write Begin  2022-05-17 01:36:36 ==========
+mytest_12: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+======================== Data disk NO.12 End =========================

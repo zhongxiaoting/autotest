@@ -1,0 +1,6 @@
+========= Data Disk NO.1 Read And Write Begin  2022-05-12 22:08:25 ==========
+mytest_1: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+======================== Data disk NO.1 End =========================

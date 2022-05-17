@@ -2,13 +2,19 @@
 import subprocess
 import sys
 import os
-from serversApp.models import Server
+from serversApp.models import Servers
 
 TEST_DIR = os.getcwd()
-submission_date = str(Server.objects.values_list("submission_date").first()[0])
-sn = str(Server.objects.order_by("-submission_date")[0])
+submission_date = str(Servers.objects.values_list("submission_date").first()[0])
+sn = str(Servers.objects.order_by("-submission_date")[0])
 date_time = submission_date.split()
 date_dir = date_time[0] + "-" + date_time[1][:8]
+print(sn)
+print(submission_date)
+# sn = "111111"
+#
+# date_dir = "35"
+
 
 # 创建log日志目录
 def make_sn_log():
@@ -22,9 +28,8 @@ def make_date_log():
         subprocess.getstatusoutput("cd /%s/log/%s && mkdir %s" % (TEST_DIR, sn, date_dir))
     return
 
-# check log dir
-make_sn_log()
-make_date_log()
+
+
 
 ###############
 # 1. dir and path
@@ -32,6 +37,7 @@ make_date_log()
 
 
 LOG_PATH = TEST_DIR + '/log/' + sn + "/" + date_dir
+INFOR_LOG_PATH = LOG_PATH + '/infor.log'
 MCE_ECC_LOG_PATH = LOG_PATH + '/mce_ecc.log'
 CPU_STRESS_LOG_PATH = LOG_PATH + '/cpu_stress.log'
 MEM_STRESS_LOG_PATH = LOG_PATH + '/mem_stress.log'

@@ -3,7 +3,6 @@ import subprocess
 import time
 
 from utils import handle as h
-from serversApp.models import Server
 
 
 # CPU的使用率
@@ -46,4 +45,10 @@ def get_mem():
 # 硬盘测试是否已经停止
 def get_pid_hdd():
     out = subprocess.getstatusoutput("pidof fio")
+    return out
+
+
+# 网卡是否停止
+def get_pid_lan():
+    out = subprocess.getstatusoutput("pidof ./lan_while.sh")
     return out

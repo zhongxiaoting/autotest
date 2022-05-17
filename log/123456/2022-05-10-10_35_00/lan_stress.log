@@ -1,0 +1,32 @@
+=================  Begin Lan Stress Check 2022-05-12 22:25:05 =================
+enp24s0f0: 08:c0:eb:c7:e1:42
+enp24s0f1: 08:c0:eb:c7:e1:43
+enp59s0f0: 08:c0:eb:c7:d2:b6
+enp59s0f1: 08:c0:eb:c7:d2:b7
+->>> enp24s0f0:	Speed: 10000Mb/s
+->>> enp24s0f1:	Speed: 10000Mb/s
+->>> enp59s0f0:	Speed: 10000Mb/s
+->>> enp59s0f1:	Speed: 10000Mb/s
+->>> enp24s0f0 is link! Formal 
+->>> enp24s0f1 is link! Formal 
+->>> enp59s0f0 is link! Formal 
+->>> enp59s0f1 is link! Formal 
+=============== NO.1 Begin Network Speech Check  2022-05-12 22:25:26 =================
+->>> enp24s0f0 speed is 9968Mb/s, Formal!
+->>> enp24s0f1 speed is 9951Mb/s, Formal!
+->>> enp59s0f0 speed is 9972Mb/s, Formal!
+->>> enp59s0f1 speed is 9929Mb/s, Formal!
+=============================== NO.1 End  ============================================
+=============== NO.2 Begin Network Speech Check  2022-05-12 22:25:36 =================
+->>> enp24s0f0 speed is 9970Mb/s, Formal!
+->>> enp24s0f1 speed is 9968Mb/s, Formal!
+->>> enp59s0f0 speed is 9966Mb/s, Formal!
+->>> enp59s0f1 speed is 9959Mb/s, Formal!
+=============================== NO.2 End  ============================================
+=============== NO.3 Begin Network Speech Check  2022-05-12 22:25:49 =================
+->>> enp24s0f0 speed is 9962Mb/s, Formal!
+->>> enp24s0f1 speed is 9968Mb/s, Formal!
+->>> enp59s0f0 speed is 9969Mb/s, Formal!
+->>> enp59s0f1 speed is 9945Mb/s, Formal!
+=============================== NO.3 End  ============================================
+--->>> Network Stress Check Finish!

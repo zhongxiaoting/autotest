@@ -12,7 +12,5 @@ urlpatterns = [
     path('stop_stress', views.stop_stress, name='stop_stress'),
     path('lan_stress', lan_views.run_item, name='run_item'),
     path('get_lan_log', lan_views.get_lan_log, name='get_lan_log'),
-
-
 ]
 

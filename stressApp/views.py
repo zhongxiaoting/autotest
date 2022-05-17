@@ -5,6 +5,7 @@ import re
 import subprocess
 
 import os
+import sys
 import threading
 import time
 
@@ -12,7 +13,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from common import constants as c
+from common import constants as c, operation as on
 from common import information as fn, operation as op
 from utils import handle as h
 from stressApp import disk as dk
@@ -27,9 +28,12 @@ def top_log():
 
 @api_view(['POST'])
 def stress_check(request):
-    subprocess.getstatusoutput("rm -rf " + c.CPU_STRESS_LOG_PATH)
+    # subprocess.getstatusoutput("rm -rf " + c.CPU_STRESS_LOG_PATH)
+    on.remove_log(c.CPU_STRESS_LOG_PATH)
     b_time = request.body
     run_time = json.loads(b_time).get("time")
+    # run_time = request.POST.get("time")
+    # print(run_time)
     thread_num = fn.get_thread_num()
     shell = "./tools/stress -c {} -t {} ".format(thread_num, run_time)
     cpu_write_log("=============  CPU Stress Check Begin  " + get_local_time_string() + " ================")
@@ -53,7 +57,8 @@ def stress_check(request):
 
 @api_view(['POST'])
 def run_mem_check(request):
-    subprocess.getstatusoutput("rm -rf " + c.MEM_STRESS_LOG_PATH)
+    # subprocess.getstatusoutput("rm -rf " + c.MEM_STRESS_LOG_PATH)
+    on.remove_log(c.MEM_STRESS_LOG_PATH)
     b_time = request.body
     run_time = json.loads(b_time).get("time")
     mem = int(fn.get_mem() * 0.8)
@@ -110,17 +115,20 @@ def stop_stress(request):
 
 
 def get_hdd_log():
-    time.sleep(c.RUN_SECONDS + 10)
-    out = fn.get_pid_hdd()
-    if out[0] == 1 and out[1] == '':
-        read_and_write_hdd_log()
-        hdd_result = hdd_result_check()
-        if hdd_result:
-            response_data = {'hdd_log': hdd_result, "status": "FAIL"}
-        else:
-            f = open(c.ALL_DISKS_LOG_PATH, "r")
-            response_data = {"hdd_log": f.read(), "status": "PASS"}
-            f.close()
+    time.sleep(c.RUN_SECONDS + 15)
+    while True:
+        time.sleep(1)
+        out = fn.get_pid_hdd()
+        if out[0] == 1 and out[1] == '':
+            read_and_write_hdd_log()
+            hdd_result = hdd_result_check()
+            if hdd_result:
+                response_data = {'hdd_log': hdd_result, "status": "FAIL"}
+            else:
+                f = open(c.ALL_DISKS_LOG_PATH, "r")
+                response_data = {"hdd_log": f.read(), "status": "PASS"}
+                f.close()
+            break
     return response_data
 
 
@@ -149,9 +157,9 @@ def make_up_raid():
     if "Fail" in raid_or_not['comand']:
         disk_write_log0("->>> No Raid")
     else:
-        disk_write_log0("===================== Building Raid ============================")
+        disk_write_log0("===================== Building Raid =============================")
         raid = subprocess.getstatusoutput("cd shell && sh ./makeraid0.sh")
-        disk_write_log0("============== Build Raid Success, Information ==================")
+        disk_write_log0("================ Build Raid Success, Information ====================")
         disk_write_log0(raid[1])
         disk_write_log0("==================================================================")
     return
@@ -170,7 +178,7 @@ def random_read_write(data_disk, i, run_time):
             " -name=mytest_{}".format(data_disk, run_time, i)
     hdd_infor = subprocess.getstatusoutput(shell)
     disk_write_log(hdd_infor[1], i)
-    disk_write_log("================== Data disk NO." + i + " End ====================", i)
+    disk_write_log("======================== Data disk NO." + i + " End =========================", i)
     return hdd_infor
 
 

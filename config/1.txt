@@ -1,0 +1,72 @@
+[root@localhost ~]# dmidecode -t 0
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 3.2 present.
+
+Handle 0x0000, DMI type 0, 26 bytes
+BIOS Information
+        Vendor: American Megatrends Inc.
+        Version: ES212IPL2.19
+        Release Date: 05/20/2021
+        Address: 0xF0000
+        Runtime Size: 64 kB
+        ROM Size: 16 MB
+        Characteristics:
+                PCI is supported
+                PNP is supported
+                BIOS is upgradeable
+                BIOS shadowing is allowed
+                Boot from CD is supported
+                Selectable boot is supported
+                BIOS ROM is socketed
+                EDD is supported
+                Print screen service is supported (int 5h)
+                Serial services are supported (int 14h)
+                Printer services are supported (int 17h)
+                ACPI is supported
+                USB legacy is supported
+                BIOS boot specification is supported
+                Targeted content distribution is supported
+                UEFI is supported
+        BIOS Revision: 2.19
+
+
+[root@localhost ~]# dmidecode -t 1
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 3.2 present.
+
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+        Manufacturer: Powerleader
+        Product Name: PR2715P2
+        Version: 1.2
+        Serial Number: PR2715P2220413SZ00002
+        UUID: 03000200-0400-0500-0006-000700080009
+        Wake-up Type: Power Switch
+        SKU Number: To be filled by O.E.M.
+        Family: To be filled by O.E.M.
+[root@localhost ~]# ipmitool mc info
+Device ID                 : 32
+Device Revision           : 1
+Firmware Revision         : 1.91
+IPMI Version              : 2.0
+Manufacturer ID           : 9091
+Manufacturer Name         : Unknown (0x2383)
+Product ID                : 8481 (0x2121)
+Product Name              : Unknown (0x2121)
+Device Available          : yes
+Provides Device SDRs      : no
+Additional Device Support :
+    Sensor Device
+    SDR Repository Device
+    SEL Device
+    FRU Inventory Device
+    IPMB Event Receiver
+    IPMB Event Generator
+    Chassis Device
+Aux Firmware Rev Info     :
+    0x00
+    0x00
+    0x00
+    0x00

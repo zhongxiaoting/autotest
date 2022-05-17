@@ -1,0 +1,145 @@
+=========== Disks Read and Write Check  2022-05-16 23:54:03 ===============
+
+===================== Building Raid =============================
+mytest_0: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+fio: io_u error on file /dev/sda: Input/output error: write offset=632193024, buflen=16384
+fio: io_u error on file /dev/sda: Input/output error: write offset=500498432, buflen=16384
+fio: io_u error on file /dev/sda: Input/output error: write offset=574865408, buflen=16384
+fio: pid=133014, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sda: Input/output error: read offset=214056960, buflen=16384
+fio: pid=133012, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sda: Input/output error: read offset=539590656, buflen=16384
+fio: pid=133033, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sda: Input/output error: write offset=353615872, buflen=16384
+fio: io_u error on file /dev/sda: Input/output error: write offset=41254912, buflen=16384
+fio: pid=133046, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sda: Input/output error: read offset=871530496, buflen=16384
+fio: pid=133040, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sda: Input/output error: read offset=1046839296, buflen=16384
+fio: pid=133015, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=133028, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=133011, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=133010, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sda: Input/output error: write offset=271974400, buflen=16384
+fio: pid=133018, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+
+mytest_0: (groupid=0, jobs=10): err= 5 (file:io_u.c:1747, func=io_u error, error=Input/output error): pid=133010: Mon May 16 23:54:06 2022
+   read: IOPS=10.0k, BW=157MiB/s (165MB/s)(28.1GiB/183484msec)
+    clat (usec): min=36, max=1631.6k, avg=619.60, stdev=10675.38
+     lat (usec): min=36, max=1631.6k, avg=619.69, stdev=10675.39
+    clat percentiles (usec):
+     |  1.00th=[  302],  5.00th=[  371], 10.00th=[  396], 20.00th=[  437],
+     | 30.00th=[  465], 40.00th=[  490], 50.00th=[  510], 60.00th=[  537],
+     | 70.00th=[  570], 80.00th=[  611], 90.00th=[  685], 95.00th=[  758],
+     | 99.00th=[  881], 99.50th=[  930], 99.90th=[ 1237], 99.95th=[ 2343],
+     | 99.99th=[ 5211]
+   bw (  KiB/s): min=   31, max=21184, per=11.68%, avg=18761.69, stdev=4252.53, samples=3143
+   iops        : min=    1, max= 1324, avg=1172.59, stdev=265.79, samples=3143
+  write: IOPS=10.1k, BW=157MiB/s (165MB/s)(28.2GiB/183484msec)
+    clat (usec): min=70, max=1626.2k, avg=363.66, stdev=10044.67
+     lat (usec): min=71, max=1626.2k, avg=364.42, stdev=10044.68
+    clat percentiles (usec):
+     |  1.00th=[   85],  5.00th=[  125], 10.00th=[  163], 20.00th=[  212],
+     | 30.00th=[  243], 40.00th=[  269], 50.00th=[  293], 60.00th=[  310],
+     | 70.00th=[  330], 80.00th=[  351], 90.00th=[  375], 95.00th=[  388],
+     | 99.00th=[  408], 99.50th=[  416], 99.90th=[  515], 99.95th=[  791],
+     | 99.99th=[ 4883]
+   bw (  KiB/s): min=   31, max=22016, per=11.65%, avg=18751.64, stdev=4372.28, samples=3149
+   iops        : min=    1, max= 1376, avg=1171.96, stdev=273.28, samples=3149
+  lat (usec)   : 50=0.03%, 100=1.60%, 250=14.81%, 500=56.08%, 750=24.83%
+  lat (usec)   : 1000=2.52%
+  lat (msec)   : 2=0.09%, 4=0.03%, 10=0.01%, 20=0.01%, 50=0.01%
+  lat (msec)   : 100=0.01%, 250=0.01%, 500=0.01%, 750=0.01%, 1000=0.01%
+  cpu          : usr=0.52%, sys=2.67%, ctx=3690613, majf=0, minf=788
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1842871,1845403,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=157MiB/s (165MB/s), 157MiB/s-157MiB/s (165MB/s-165MB/s), io=28.1GiB (30.2GB), run=183484-183484msec
+  WRITE: bw=157MiB/s (165MB/s), 157MiB/s-157MiB/s (165MB/s-165MB/s), io=28.2GiB (30.2GB), run=183484-183484msec
+
+Disk stats (read/write):
+  sda: ios=18446744073709551571/0, merge=0/0, ticks=18446744073709546810/0, in_queue=2095637, util=100.00%
+======================== Data disk NO.0 End =========================
+================ Build Raid Success, Information ====================
+/home/autotest
+CLI Version = 007.1912.0000.0000 Nov 23, 2021
+Operating system = Linux 3.10.0-1160.el7.x86_64
+Controller = 0
+Status = Success
+Description = Add VD Succeeded.
+
+
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    0 446.6G  0 disk 
+sdb           8:16   0 446.6G  0 disk 
+sdc           8:32   0  10.9T  0 disk 
+sdd           8:48   0  10.9T  0 disk 
+sde           8:64   0  10.9T  0 disk 
+sdf           8:80   0  10.9T  0 disk 
+sdg           8:96   0  10.9T  0 disk 
+sdh           8:112  0  10.9T  0 disk 
+sdi           8:128  0  10.9T  0 disk 
+sdj           8:144  0  10.9T  0 disk 
+sdk           8:160  0  10.9T  0 disk 
+sdl           8:176  0  10.9T  0 disk 
+nvme0n1     259:0    0   1.5T  0 disk 
+├─nvme0n1p1 259:2    0     1G  0 part /boot
+├─nvme0n1p2 259:3    0     8G  0 part [SWAP]
+└─nvme0n1p3 259:4    0   100G  0 part /
+nvme1n1     259:1    0   1.5T  0 disk 
+==================================================================
+->>> System Disk is : nvme0n1
+->>> Tatol Non-system Disks: 13
+->>> Non-system Disks is : 
+['/dev/sda', '/dev/sdb', '/dev/sdc', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg', '/dev/sdh', '/dev/sdi', '/dev/sdj', '/dev/sdk', '/dev/sdl', '/dev/nvme1n1']
+========= Data Disk NO.0 Read And Write Begin  2022-05-16 23:54:46 ==========
+mytest_0: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_0: (groupid=0, jobs=10): err= 0: pid=134241: Mon May 16 23:55:18 2022
+   read: IOPS=7, BW=117KiB/s (120kB/s)(3568KiB/30480msec)
+    clat (msec): min=130, max=935, avg=630.96, stdev=191.71
+     lat (msec): min=130, max=935, avg=630.96, stdev=191.71
+    clat percentiles (msec):
+     |  1.00th=[  224],  5.00th=[  292], 10.00th=[  456], 20.00th=[  468],
+     | 30.00th=[  468], 40.00th=[  684], 50.00th=[  701], 60.00th=[  701],
+     | 70.00th=[  701], 80.00th=[  701], 90.00th=[  936], 95.00th=[  936],
+     | 99.00th=[  936], 99.50th=[  936], 99.90th=[  936], 99.95th=[  936],
+     | 99.99th=[  936]
+   bw (  KiB/s): min=   31, max=   64, per=27.56%, avg=32.24, stdev= 3.07, samples=218
+   iops        : min=    1, max=    4, avg= 1.97, stdev= 0.29, samples=218
+  write: IOPS=8, BW=140KiB/s (143kB/s)(4256KiB/30480msec)
+    clat (msec): min=130, max=937, avg=610.02, stdev=203.73
+     lat (msec): min=130, max=937, avg=610.02, stdev=203.73
+    clat percentiles (msec):
+     |  1.00th=[  131],  5.00th=[  224], 10.00th=[  388], 20.00th=[  468],
+     | 30.00th=[  468], 40.00th=[  477], 50.00th=[  701], 60.00th=[  701],
+     | 70.00th=[  701], 80.00th=[  701], 90.00th=[  936], 95.00th=[  936],
+     | 99.00th=[  936], 99.50th=[  936], 99.90th=[  936], 99.95th=[  936],
+     | 99.99th=[  936]
+   bw (  KiB/s): min=   31, max=   64, per=24.02%, avg=33.38, stdev= 6.61, samples=248
+   iops        : min=    1, max=    4, avg= 2.05, stdev= 0.46, samples=248
+  lat (msec)   : 250=4.91%, 500=35.58%, 750=43.76%, 1000=15.75%
+  cpu          : usr=0.00%, sys=0.00%, ctx=491, majf=0, minf=9
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=223,266,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=117KiB/s (120kB/s), 117KiB/s-117KiB/s (120kB/s-120kB/s), io=3568KiB (3654kB), run=30480-30480msec
+  WRITE: bw=140KiB/s (143kB/s), 140KiB/s-140KiB/s (143kB/s-143kB/s), io=4256KiB (4358kB), run=30480-30480msec
+
+Disk stats (read/write):
+  sda: ios=235/262, merge=0/0, ticks=150327/158586, in_queue=313701, util=99.68%
+======================== Data disk NO.0 End =========================

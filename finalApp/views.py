@@ -29,21 +29,25 @@ def run_item(request):
 # 读取日志，0为没有运行完成，或者出现错误；1为运行完成
 @api_view(['GET'])
 def get_black_log(request):
-    success = False
     black_result = black_result_check()
-    f = open(c.BLACK_LIST_LOG_PATH, "r", encoding="utf-8")
-    if black_result:
-        response_data = {'black_log': f, "status": "FAIL", "final": success}
-    else:
-        # if "all black check is successful" in file:
-        #     success = 1
-        response_data = {"black_log": f, "status": "PASS", "final": success}
+    # f = open(c.BLACK_LIST_LOG_PATH, "r", encoding="utf-8")
+    with open(c.BLACK_LIST_LOG_PATH, "r") as f:
+        data = f.read()
+        if black_result:
+            response_data = {'black_log': black_result, "status": "FAIL"}
+        elif "All Black check is successful!" in data:
+            response_data = {"black_log": data, "status": "PASS"}
+        else:
+            response_data = {"black_log": data, "status": "Checking..."}
+
+        f.flush()
+        f.close()
     return Response(response_data)
 
 
 # SSD和HDD检查
 def check_hdd():
-    write_log("\n" + "**" * 20 + " Check HDD and SSD  " + get_local_time_string() + "  " + "**" * 20)
+    write_log("\n" + "**" * 12 + " Check HDD and SSD  " + get_local_time_string() + "  " + "**" * 12)
     pgone = 'SMART overall-health self-assessment test result: PASSED'
     SAS = 'Transport protocol:   SAS (SPL-3)'
     SAS_h = 'SMART Health Status: OK'
@@ -185,7 +189,7 @@ def check_hdd():
 
 # NVME检查
 def check_nvme():
-    write_log("\n" + "**" * 20 + "     Check NVME  " + get_local_time_string() + "     " + "**" * 20)
+    write_log("\n" + "**" * 15 + "     Check NVME  " + get_local_time_string() + "     " + "**" * 15)
     cmd = 'ls /sys/block |grep -Ev "loop*|ram*|sd*|dm"'
     nvme_name = subprocess.getstatusoutput(cmd)
     if len(nvme_name[1]) != 0:
@@ -229,7 +233,7 @@ def check_nvme():
 
 # CPU MCE Check
 def check_mce_log():
-    write_log("\n" + "**" * 20 + "     Check MCE  " + get_local_time_string() + "      " + "**" * 20)
+    write_log("\n" + "**" * 15 + "     Check MCE  " + get_local_time_string() + "      " + "**" * 15)
     error_log = []
     match_keys = "above temperature, being removed, CATEER, critical, Corrected, scrub error, degraded, dead device, " \
                  "Device offlined, device_unblocked, error, err,  failed, failure, fault, HDD block removing handle, " \
@@ -259,9 +263,9 @@ def check_mce_log():
 
 # 网口误码
 def check_ethernet_errors():
-    write_log("\n" + "**" * 20 + "   Check Ethernet  " + get_local_time_string() + "   " + "**" * 20)
+    write_log("\n" + "**" * 14 + "   Check Ethernet  " + get_local_time_string() + "   " + "**" * 14)
     errors_dev = {}
-    result = h.cmd_msg('ls -1 /sys/class/net/ |grep -Ev "lo|enx|vir"').split('\n')
+    result = h.cmd_msg('ls -1 /sys/class/net/ |grep -Ev "lo|enx|vir|docker"').split('\n')
 
     for dev in result:
         cmd = "ethtool  %s |grep Speed" % (dev)
@@ -277,7 +281,6 @@ def check_ethernet_errors():
         for i in dev_info:
             index = i.rfind(":")
             value = int(i[index + 1:].strip())
-
             err_count += value
         if (err_count != 0):
             errors_dev[dev] = str(err_count)
@@ -293,7 +296,7 @@ def check_ethernet_errors():
 
 # PCIE误码检查
 def check_PCIE_errors():
-    write_log("\n" + "**" * 20 + "     Check PCIE  " + get_local_time_string() + "     " + "**" * 20)
+    write_log("\n" + "**" * 14 + "     Check PCIE  " + get_local_time_string() + "     " + "**" * 14)
     dev_AER = {}
     dev_list = []
     cmd = "lspci"
@@ -340,7 +343,7 @@ def check_PCIE_errors():
 
 # SEL报错关键字查找
 def check_SEL():
-    write_log("\n" + "**" * 20 + "      Check SEL  " + get_local_time_string() + "     " + "**" * 20)
+    write_log("\n" + "**" * 15 + "      Check SEL  " + get_local_time_string() + "     " + "**" * 15)
     cmd = "ipmitool sel clear"
     sel_clear = h.cmd_msg(cmd)
     match_keys = "abort,cancel,correctable ECC,critical,degrate,disconnect,Deasserted,down,expired,Err,Error," \
@@ -370,7 +373,7 @@ def check_SEL():
 
 # MCE and ECC 检查
 def check_mce_ecc():
-    write_log("\n" + "**" * 20 + "  Check MCE AND ECC  " + get_local_time_string() + "  " + "**" * 20)
+    write_log("\n" + "**" * 12 + "  Check MCE AND ECC  " + get_local_time_string() + "  " + "**" * 12)
     cpu_mec_display = h.cmd_msg("ras-mc-ctl --summary")
     # write_log(cpu_mec_display)
     cpu_mce = cpu_mce_errors(cpu_mec_display)
@@ -383,7 +386,8 @@ def check_mce_ecc():
 
     # 再次检查ECC SEL
     check_SEL()
-    write_log("all black check is successful")
+    write_log("\n" + "**" * 21 + "  All  Black  End  " + "**" * 20)
+    write_log("-->> All Black check is successful!")
     return
 
 

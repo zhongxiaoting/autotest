@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',  # 跨域
     'rest_framework',
+    'userApp',
     'serversApp',  # 服务器信息
     'informationApp',  # 基本配置校对
     'stressApp',  # 压力测试
     'finalApp',  # 黑名单检查
+    'checkApp',
 
 ]
 
@@ -84,7 +86,7 @@ WSGI_APPLICATION = 'autotest.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'autotest',
+        'NAME': 'xiao',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST': '192.168.33.3',
@@ -113,7 +115,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -132,3 +135,15 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# 激活重写存储文件引擎方法
+DEFAULT_FILE_STORAGE = 'utils.fdfs.storage.FDFSStorage'
+
+# 文件存储在存储服务器
+FDAS_URL = 'http://192.168.33.3:8888/'
+
+# <img src="http://39.106.64.101:8888/group1/M00/00/00/rBHmx10A9JmAVEKNAABf71XWOL06003319" alt=""># 配置 Fastdfs 配置文件
+# FDFS_CLIENT_CONF = os.path.join(BASE_DIR, 'client.conf')
+FDFS_CLIENT_CONF = "/home/autotest/config/client.conf"
+
+

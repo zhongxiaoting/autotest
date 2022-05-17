@@ -28,9 +28,9 @@ getout_docker = 'logical name: docker0'
 @api_view(['GET'])
 def cpu_mce_check(request):
     cpu_mec_display = h.run_cmd(CMD_GET_CPU_MCE)
-    write_log("=============  CPU MCE Check Begin  " + get_local_time_string() + " ================")
-    write_log(cpu_mec_display)
-    write_log("==============  CPU MCE Check End  " + get_local_time_string() + " =================")
+    write_log1("=============  CPU MCE Check Begin  " + get_local_time_string() + " ================")
+    write_log1(cpu_mec_display)
+    write_log1("==============  CPU MCE Check End  " + get_local_time_string() + " =================")
     cpu_mce_errors(cpu_mec_display['cmd_infor'])
     response_data = {"cpu_mec": cpu_mec_display, "status": "PASS"}
     # response_data1 = data.append(response_data)
@@ -44,14 +44,14 @@ def cpu_mce_check(request):
 def mem_ecc_check(request):
     ecc_clear = h.run_cmd("ipmitool sel clear")
     ecc_infor = h.run_cmd("ipmitool sel list")
-    write_log("=============  MEM ECC Check Begin  " + get_local_time_string() + " ================")
-    write_log(ecc_infor)
-    write_log("==============  MEM ECC Check End  " + get_local_time_string() + " =================")
+    write_log1("=============  MEM ECC Check Begin  " + get_local_time_string() + " ================")
+    write_log1(ecc_infor)
+    write_log1("==============  MEM ECC Check End  " + get_local_time_string() + " =================")
     if "ECC" in ecc_infor:
-        write_log("->>> MEM ECC Fail")
+        write_log1("->>> MEM ECC Fail")
         h.result_fail("MEM ECC")
         return
-    write_log("->>> MEM ECC PASS ")
+    write_log1("->>> MEM ECC PASS ")
     response_data = {"mem_ecc": ecc_infor, "status": "PASS"}
     return Response(response_data, status=status.HTTP_200_OK)
 
@@ -65,13 +65,13 @@ def cpu_mce_errors(mce_errors):
         result = re.match("No", mce)
         if not result:
             errors_information = h.run_cmd("ras-mc-ctl --errors")
-            write_log("============  CPU MCE ERROR Check Begin " + get_local_time_string() + " ==============")
-            write_log(errors_information)
-            write_log("==============  CPU MCE ERROR Check End " + get_local_time_string() + " ================")
-            write_log("->>> MCE ERROR ")
+            write_log1("============  CPU MCE ERROR Check Begin " + get_local_time_string() + " ==============")
+            write_log1(errors_information)
+            write_log1("==============  CPU MCE ERROR Check End " + get_local_time_string() + " ================")
+            write_log1("->>> MCE ERROR ")
             response_data = {"mce_error": errors_information, "status": "FAIL"}
             return Response(json.dumps(response_data), status=status.HTTP_403_FORBIDDEN)
-    write_log("->>> CPU MCE PASS ")
+    write_log1("->>> CPU MCE PASS ")
 
 
 @api_view(['GET'])
@@ -197,7 +197,7 @@ def hdd_info_check(request):
         yp_info = []
         # nvme_name=[]
 
-        cmd = '/opt/MegaRAID/MegaCli/MegaCli64 -LdPdInfo -aALL | grep "Device Id:"'
+        cmd = '/home/autotest/tools/MegaCli64 -LdPdInfo -aALL | grep "Device Id:"'
         raid_hdd_number = h.run_cmd(cmd)
         raid_hdd_number = raid_hdd_number['cmd_infor'].split('\n')
 
@@ -208,7 +208,6 @@ def hdd_info_check(request):
         if len(raid_hdd_name) != 0:
             raid_hdd_number_count = len(raid_hdd_name)
             write_log('------------ The hdd number count is %s ------------' % raid_hdd_number_count)
-
             for i in raid_hdd_number:
                 panfu = i.split()[2]
                 panfu = int(panfu)
@@ -237,9 +236,8 @@ def hdd_info_check(request):
                 get_hdd_capacity = h.run_cmd(cmd)
                 write_log(get_hdd_capacity['cmd_infor'])
                 write_log('------------ This hdd is ok next coming ------------')
-
+                hdd_di['name'] = raid_hdd_name[i]
                 hdd_di['version'] = yp_info['cmd_infor'].split(":")[1]
-                # hdd_di['硬盘'] = yp_firmware_version['cmd_infor'].split(":")[1]
                 hdd_di['size'] = get_hdd_capacity['cmd_infor'].split(":")[1]
                 hdd_di['sn'] = hdd_sn['cmd_infor'].split(":")[1]
                 hdd_list.append(hdd_di)
@@ -315,7 +313,7 @@ def network_info_check(request):
                 if not re.search(getout_virb, line, re.IGNORECASE):
                     network_dir = {}
                     write_log(line)
-                    network_product_name = re.findall(r'product: (.*)', i)[0]
+                    network_product_name = re.findall(r'product: (.*)', i)
                     write_log(network_product_name)
                     network_vendor = re.findall(r'vendor: (.*)', i)[0]
                     write_log(network_vendor)
@@ -337,6 +335,14 @@ def network_info_check(request):
 
 
 def write_log(s):
+    with open(c.INFOR_LOG_PATH, 'a+') as f:
+        # print(s)
+        f.write(str(s) + '\n')
+        f.flush()
+        os.fsync(f)
+
+
+def write_log1(s):
     with open(c.MCE_ECC_LOG_PATH, 'a+') as f:
         # print(s)
         f.write(str(s) + '\n')

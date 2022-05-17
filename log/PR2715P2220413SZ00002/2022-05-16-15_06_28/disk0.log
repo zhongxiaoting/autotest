@@ -1,0 +1,86 @@
+=========== Disks Read and Write Check  2022-05-17 01:35:37 ===============
+
+===================== Building Raid =============================
+mytest_0: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_0: (groupid=0, jobs=10): err= 0: pid=144598: Tue May 17 01:35:45 2022
+   read: IOPS=7, BW=119KiB/s (122kB/s)(3632KiB/30577msec)
+    clat (usec): min=355, max=958938, avg=596317.00, stdev=260941.35
+     lat (usec): min=355, max=958939, avg=596317.34, stdev=260941.40
+    clat percentiles (usec):
+     |  1.00th=[   404],  5.00th=[   619], 10.00th=[240124], 20.00th=[480248],
+     | 30.00th=[480248], 40.00th=[480248], 50.00th=[492831], 60.00th=[717226],
+     | 70.00th=[717226], 80.00th=[901776], 90.00th=[960496], 95.00th=[960496],
+     | 99.00th=[960496], 99.50th=[960496], 99.90th=[960496], 99.95th=[960496],
+     | 99.99th=[960496]
+   bw (  KiB/s): min=   31, max=  128, per=29.10%, avg=34.34, stdev=10.98, samples=204
+   iops        : min=    1, max=    8, avg= 2.13, stdev= 0.70, samples=204
+  write: IOPS=8, BW=137KiB/s (140kB/s)(4192KiB/30577msec)
+    clat (usec): min=95, max=1113.9k, avg=620739.69, stdev=265086.94
+     lat (usec): min=95, max=1113.9k, avg=620741.01, stdev=265087.09
+    clat percentiles (usec):
+     |  1.00th=[    176],  5.00th=[ 229639], 10.00th=[ 250610],
+     | 20.00th=[ 467665], 30.00th=[ 480248], 40.00th=[ 480248],
+     | 50.00th=[ 692061], 60.00th=[ 717226], 70.00th=[ 717226],
+     | 80.00th=[ 960496], 90.00th=[ 960496], 95.00th=[ 960496],
+     | 99.00th=[1115685], 99.50th=[1115685], 99.90th=[1115685],
+     | 99.95th=[1115685], 99.99th=[1115685]
+   bw (  KiB/s): min=   31, max=  128, per=24.98%, avg=34.22, stdev=10.04, samples=243
+   iops        : min=    1, max=    8, avg= 2.12, stdev= 0.65, samples=243
+  lat (usec)   : 100=0.20%, 250=0.61%, 500=2.45%, 750=1.23%
+  lat (msec)   : 20=1.84%, 250=3.68%, 500=38.85%, 750=28.43%, 1000=21.68%
+  cpu          : usr=0.00%, sys=0.01%, ctx=500, majf=0, minf=17
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=227,262,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=119KiB/s (122kB/s), 119KiB/s-119KiB/s (122kB/s-122kB/s), io=3632KiB (3719kB), run=30577-30577msec
+  WRITE: bw=137KiB/s (140kB/s), 137KiB/s-137KiB/s (140kB/s-140kB/s), io=4192KiB (4293kB), run=30577-30577msec
+
+Disk stats (read/write):
+  sda: ios=230/262, merge=0/0, ticks=137332/162644, in_queue=300670, util=98.18%
+======================== Data disk NO.0 End =========================
+================ Build Raid Success, Information ====================
+/home/autotest
+CLI Version = 007.1912.0000.0000 Nov 23, 2021
+Operating system = Linux 3.10.0-1160.el7.x86_64
+Controller = 0
+Status = Success
+Description = Add VD Succeeded.
+
+
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    0 446.6G  0 disk 
+sdb           8:16   0 446.6G  0 disk 
+sdc           8:32   0  10.9T  0 disk 
+sdd           8:48   0  10.9T  0 disk 
+sde           8:64   0  10.9T  0 disk 
+sdf           8:80   0  10.9T  0 disk 
+sdg           8:96   0  10.9T  0 disk 
+sdh           8:112  0  10.9T  0 disk 
+sdi           8:128  0  10.9T  0 disk 
+sdj           8:144  0  10.9T  0 disk 
+sdk           8:160  0  10.9T  0 disk 
+sdl           8:176  0  10.9T  0 disk 
+nvme0n1     259:0    0   1.5T  0 disk 
+├─nvme0n1p1 259:2    0     1G  0 part /boot
+├─nvme0n1p2 259:3    0     8G  0 part [SWAP]
+└─nvme0n1p3 259:4    0   100G  0 part /
+nvme1n1     259:1    0   1.5T  0 disk 
+==================================================================
+->>> System Disk is : nvme0n1
+->>> Tatol Non-system Disks: 13
+->>> Non-system Disks is : 
+['/dev/sda', '/dev/sdb', '/dev/sdc', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg', '/dev/sdh', '/dev/sdi', '/dev/sdj', '/dev/sdk', '/dev/sdl', '/dev/nvme1n1']
+========= Data Disk NO.0 Read And Write Begin  2022-05-17 01:36:36 ==========
+mytest_0: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+======================== Data disk NO.0 End =========================

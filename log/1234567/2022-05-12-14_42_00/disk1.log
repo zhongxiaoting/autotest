@@ -1,0 +1,110 @@
+mytest_1: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+fio: io_u error on file /dev/sdb: Input/output error: write offset=423952384, buflen=16384
+fio: io_u error on file /dev/sdb: Input/output error: write offset=836124672, buflen=16384
+fio: io_u error on file /dev/sdb: Input/output error: write offset=243384320, buflen=16384
+fio: io_u error on file /dev/sdb: Input/output error: read offset=808681472, buflen=16384
+fio: pid=131755, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sdb: Input/output error: write offset=544407552, buflen=16384
+fio: pid=131797, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sdb: Input/output error: write offset=193069056, buflen=16384
+fio: io_u error on file /dev/sdb: Input/output error: read offset=352534528, buflen=16384
+fio: pid=131806, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=131796, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=131850, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=131803, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sdb: Input/output error: read offset=497565696, buflen=16384
+fio: pid=131804, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sdb: Input/output error: write offset=954597376, buflen=16384
+fio: pid=131799, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: io_u error on file /dev/sdb: Input/output error: write offset=978894848, buflen=16384
+fio: pid=131834, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+fio: pid=131800, err=5/file:io_u.c:1747, func=io_u error, error=Input/output error
+
+mytest_1: (groupid=0, jobs=10): err= 5 (file:io_u.c:1747, func=io_u error, error=Input/output error): pid=131755: Mon May 16 23:54:08 2022
+   read: IOPS=9928, BW=155MiB/s (163MB/s)(28.2GiB/185867msec)
+    clat (usec): min=36, max=1693.8k, avg=626.77, stdev=11141.29
+     lat (usec): min=36, max=1693.8k, avg=626.86, stdev=11141.29
+    clat percentiles (usec):
+     |  1.00th=[  302],  5.00th=[  371], 10.00th=[  396], 20.00th=[  437],
+     | 30.00th=[  465], 40.00th=[  490], 50.00th=[  510], 60.00th=[  537],
+     | 70.00th=[  562], 80.00th=[  611], 90.00th=[  685], 95.00th=[  750],
+     | 99.00th=[  881], 99.50th=[  930], 99.90th=[ 1237], 99.95th=[ 2474],
+     | 99.99th=[ 6783]
+   bw (  KiB/s): min=   31, max=21120, per=11.75%, avg=18665.71, stdev=4502.72, samples=3163
+   iops        : min=    1, max= 1320, avg=1166.56, stdev=281.43, samples=3163
+  write: IOPS=9941, BW=155MiB/s (163MB/s)(28.2GiB/185867msec)
+    clat (usec): min=70, max=1858.1k, avg=369.67, stdev=10495.52
+     lat (usec): min=70, max=1858.1k, avg=370.28, stdev=10495.53
+    clat percentiles (usec):
+     |  1.00th=[   85],  5.00th=[  126], 10.00th=[  163], 20.00th=[  212],
+     | 30.00th=[  243], 40.00th=[  269], 50.00th=[  289], 60.00th=[  310],
+     | 70.00th=[  330], 80.00th=[  351], 90.00th=[  371], 95.00th=[  388],
+     | 99.00th=[  408], 99.50th=[  412], 99.90th=[  474], 99.95th=[  676],
+     | 99.99th=[ 5145]
+   bw (  KiB/s): min=   31, max=22464, per=11.75%, avg=18696.55, stdev=4534.75, samples=3162
+   iops        : min=    1, max= 1404, avg=1168.49, stdev=283.44, samples=3162
+  lat (usec)   : 50=0.03%, 100=1.57%, 250=14.88%, 500=56.11%, 750=24.86%
+  lat (usec)   : 1000=2.41%
+  lat (msec)   : 2=0.08%, 4=0.03%, 10=0.01%, 20=0.01%, 250=0.01%
+  lat (msec)   : 500=0.01%, 750=0.01%, 1000=0.01%
+  cpu          : usr=0.49%, sys=2.70%, ctx=3694529, majf=0, minf=696
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.1%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=1845290,1847758,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=155MiB/s (163MB/s), 155MiB/s-155MiB/s (163MB/s-163MB/s), io=28.2GiB (30.2GB), run=185867-185867msec
+  WRITE: bw=155MiB/s (163MB/s), 155MiB/s-155MiB/s (163MB/s-163MB/s), io=28.2GiB (30.3GB), run=185867-185867msec
+
+Disk stats (read/write):
+  sdb: ios=1845438/1847871, merge=0/0, ticks=1302894/796526, in_queue=2111075, util=100.00%
+======================== Data disk NO.1 End =========================
+========= Data Disk NO.1 Read And Write Begin  2022-05-16 23:54:46 ==========
+mytest_1: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_1: (groupid=0, jobs=10): err= 0: pid=134469: Mon May 16 23:55:18 2022
+   read: IOPS=6, BW=107KiB/s (110kB/s)(3264KiB/30378msec)
+    clat (msec): min=222, max=935, avg=673.54, stdev=189.47
+     lat (msec): min=222, max=935, avg=673.54, stdev=189.47
+    clat percentiles (msec):
+     |  1.00th=[  224],  5.00th=[  388], 10.00th=[  468], 20.00th=[  468],
+     | 30.00th=[  481], 40.00th=[  701], 50.00th=[  701], 60.00th=[  701],
+     | 70.00th=[  701], 80.00th=[  936], 90.00th=[  936], 95.00th=[  936],
+     | 99.00th=[  936], 99.50th=[  936], 99.90th=[  936], 99.95th=[  936],
+     | 99.99th=[  936]
+   bw (  KiB/s): min=   31, max=   64, per=31.28%, avg=33.47, stdev= 6.78, samples=191
+   iops        : min=    1, max=    4, avg= 2.06, stdev= 0.45, samples=191
+  write: IOPS=8, BW=133KiB/s (136kB/s)(4048KiB/30378msec)
+    clat (msec): min=222, max=935, avg=642.74, stdev=192.87
+     lat (msec): min=222, max=935, avg=642.74, stdev=192.87
+    clat percentiles (msec):
+     |  1.00th=[  234],  5.00th=[  380], 10.00th=[  397], 20.00th=[  468],
+     | 30.00th=[  468], 40.00th=[  693], 50.00th=[  701], 60.00th=[  701],
+     | 70.00th=[  701], 80.00th=[  709], 90.00th=[  936], 95.00th=[  936],
+     | 99.00th=[  936], 99.50th=[  936], 99.90th=[  936], 99.95th=[  936],
+     | 99.99th=[  936]
+   bw (  KiB/s): min=   31, max=   64, per=25.60%, avg=34.05, stdev= 7.89, samples=232
+   iops        : min=    1, max=    4, avg= 2.11, stdev= 0.51, samples=232
+  lat (msec)   : 250=3.50%, 500=30.63%, 750=44.42%, 1000=21.44%
+  cpu          : usr=0.00%, sys=0.00%, ctx=467, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=204,253,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=107KiB/s (110kB/s), 107KiB/s-107KiB/s (110kB/s-110kB/s), io=3264KiB (3342kB), run=30378-30378msec
+  WRITE: bw=133KiB/s (136kB/s), 133KiB/s-133KiB/s (136kB/s-136kB/s), io=4048KiB (4145kB), run=30378-30378msec
+
+Disk stats (read/write):
+  sdb: ios=215/250, merge=0/0, ticks=146120/160562, in_queue=311291, util=98.65%
+======================== Data disk NO.1 End =========================

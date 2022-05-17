@@ -1,5 +1,6 @@
 # coding=utf-8
 import datetime
+import json
 import os
 import re
 import sys
@@ -8,17 +9,28 @@ import threading
 
 from rest_framework.decorators import api_view
 
-from common import constants as c, operation as on
+from common import constants as c, operation as on, information as fn
 from utils import handle as h
 from rest_framework.response import Response
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 def run_item(request):
     on.remove_log(c.LAN_STRESS_LOG_PATH)
+    # 获取前端传回的时间,将得到的时间全部转化为秒
+    b_time = request.body
+    run_time = json.loads(b_time).get("time")
+    time_unit = run_time[-1]
+    time_number = re.findall(r'\d+', run_time)
+    if time_unit == 'm':
+        time_seconds = int(time_number[0]) * 60
+    elif time_unit == 'h':
+        time_seconds = int(time_number[0]) * 3600
+    else:
+        time_seconds = int(time_number[0])
     start_lan_run()
     check_network_link()
-    check_speed()
+    check_speed(time_seconds)
     response_data = {"lan_infor": "网卡测试完成！"}
     return Response(response_data)
 
@@ -27,11 +39,17 @@ def run_item(request):
 @api_view(['GET'])
 def get_lan_log(request):
     lan_result = lan_result_check()
-    if lan_result:
-        response_data = {'lan_log': lan_result, "status": "FAIL"}
-    else:
-        f = open(c.LAN_STRESS_LOG_PATH, "r")
-        response_data = {"lan_log": f, "status": "PASS"}
+    with open(c.LAN_STRESS_LOG_PATH, "r+") as f:
+        data = f.read()
+
+        if lan_result:
+            response_data = {'lan_log': lan_result, "status": "FAIL"}
+        elif "Network Stress Check Finish!" in data:
+            response_data = {"lan_log": data, "status": "PASS"}
+        else:
+            response_data = {'lan_log': data, "status": "Checking..."}
+        f.flush()
+        f.close()
     return Response(response_data)
 
 
@@ -51,7 +69,7 @@ def lan_result_check():
             response_data = "Stress Check have ERROR, Please check progress!"
             return response_data
         f.flush()
-        f.close()
+
         return
 
 
@@ -98,14 +116,16 @@ def check_network_link():
     return link_detected
 
 
-def check_speed():
+def check_speed(run_seconds):
     count = 1
     # duration_time = 50
-    day_time = datetime.datetime.now() + datetime.timedelta(seconds=c.RUN_SECONDS)
+    day_time = datetime.datetime.now() + datetime.timedelta(seconds=run_seconds)
     day_time = day_time.strftime("%Y-%m-%d %H:%M:%S")
     enps = h.cmd_msg('ls /sys/class/net | grep -E "enp[a-z0-9]+f[0-1]$"').split('\n')
+    time.sleep(5)
     while True:
         now_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        out = fn.get_pid_lan()
         if day_time <= now_time:
             break
         time.sleep(c.WAIT_LAN_SPEED_TIME)
@@ -159,10 +179,10 @@ def check_speed():
             else:
                 write_log("->>> {} speed is {},not achieved!".format(enp, full_speed))
         write_log(
-            "=============================== NO." + str(count) + " End  ============================================")
+            "================================== NO." + str(count) + " End  ==================================")
         count += 1
     h.lan_formal_quit()
-    write_log("--->>> Network Stress Check Finish!")
+    write_log("--->>> Network Stress Check Finish! ")
     return
 
 
