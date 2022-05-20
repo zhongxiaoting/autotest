@@ -7,7 +7,7 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from common.constants import make_sn_log, make_date_log
+# from common.constants import make_sn_log, make_date_log
 from serversApp.models import Servers
 from serversApp.serializers import ServerSerializer
 from serversApp.models import SubmitLog
@@ -24,6 +24,7 @@ def create_server(request):
     :param request:
     :return: add data
     """
+    subprocess.getstatusoutput("rm -rf /home/autotest/log/*")
     serializers = ServerSerializer(data=request.data)
     sn = request.data.get("sn")
     if len(sn) < 6:
@@ -32,8 +33,8 @@ def create_server(request):
     if serializers.is_valid():
         serializers.save()
         # check log dir
-        make_sn_log()
-        make_date_log()
+        subprocess.getstatusoutput("mkdir /home/autotest/log/" + str(sn))
+        print("success")
         response_data = {"summit": "summit formal!", "status": "true"}
     return Response(response_data, status=status.HTTP_201_CREATED)
 
@@ -41,7 +42,9 @@ def create_server(request):
 # 导入封装类，日志文件上传
 @api_view(["POST"])
 def upload(request):
-    sn = constants.sn
+    sn = str(Servers.objects.order_by("-submission_date")[0])
+    cmd = "mv /home/autotest/log/*.log /home/autotest/log/{}".format(sn)
+    subprocess.getstatusoutput(cmd)
     # print(Servers.objects.get(sn=sn))
     sn_path = "/home/autotest/log"
     on.remove_log(sn_path + "/" + sn + ".zip")

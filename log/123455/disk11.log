@@ -1,0 +1,44 @@
+========= Data Disk NO.11 Read And Write Begin  2022-05-21 03:02:22 ==========
+mytest_11: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_11: (groupid=0, jobs=10): err= 0: pid=118723: Sat May 21 03:02:54 2022
+   read: IOPS=4, BW=76.6KiB/s (78.5kB/s)(2368KiB/30906msec)
+    clat (msec): min=235, max=1391, avg=936.53, stdev=171.96
+     lat (msec): min=235, max=1391, avg=936.53, stdev=171.96
+    clat percentiles (msec):
+     |  1.00th=[  236],  5.00th=[  726], 10.00th=[  726], 20.00th=[  751],
+     | 30.00th=[  961], 40.00th=[  969], 50.00th=[  969], 60.00th=[  978],
+     | 70.00th=[  986], 80.00th=[  986], 90.00th=[ 1167], 95.00th=[ 1200],
+     | 99.00th=[ 1385], 99.50th=[ 1385], 99.90th=[ 1385], 99.95th=[ 1385],
+     | 99.99th=[ 1385]
+   bw (  KiB/s): min=   31, max=   32, per=42.08%, avg=31.98, stdev= 0.14, samples=145
+   iops        : min=    1, max=    2, avg= 1.98, stdev= 0.14, samples=145
+  write: IOPS=5, BW=92.7KiB/s (94.9kB/s)(2864KiB/30906msec)
+    clat (msec): min=235, max=1391, avg=912.09, stdev=193.29
+     lat (msec): min=235, max=1391, avg=912.09, stdev=193.29
+    clat percentiles (msec):
+     |  1.00th=[  236],  5.00th=[  485], 10.00th=[  726], 20.00th=[  743],
+     | 30.00th=[  961], 40.00th=[  961], 50.00th=[  969], 60.00th=[  969],
+     | 70.00th=[  969], 80.00th=[  969], 90.00th=[  978], 95.00th=[ 1200],
+     | 99.00th=[ 1385], 99.50th=[ 1385], 99.90th=[ 1385], 99.95th=[ 1385],
+     | 99.99th=[ 1385]
+   bw (  KiB/s): min=   31, max=   32, per=34.77%, avg=31.99, stdev= 0.11, samples=172
+   iops        : min=    1, max=    2, avg= 1.99, stdev= 0.11, samples=172
+  lat (msec)   : 250=3.06%, 500=0.61%, 750=15.90%, 1000=70.64%
+  cpu          : usr=0.00%, sys=0.00%, ctx=358, majf=0, minf=8
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=148,179,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=76.6KiB/s (78.5kB/s), 76.6KiB/s-76.6KiB/s (78.5kB/s-78.5kB/s), io=2368KiB (2425kB), run=30906-30906msec
+  WRITE: bw=92.7KiB/s (94.9kB/s), 92.7KiB/s-92.7KiB/s (94.9kB/s-94.9kB/s), io=2864KiB (2933kB), run=30906-30906msec
+
+Disk stats (read/write):
+  sdl: ios=188/175, merge=0/0, ticks=181175/159434, in_queue=345044, util=100.00%
+======================== Data disk NO.11 End =========================

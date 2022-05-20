@@ -2,6 +2,7 @@ import json
 
 from django.shortcuts import render
 
+from serversApp.models import Servers
 from utils import handle as h
 # Create your views here.
 from rest_framework.decorators import api_view
@@ -32,7 +33,8 @@ def system_checkout(request):
     bios_version = get_bios_version['cmd_infor'].split(":")[1].lstrip()
     bmc_version = get_bmc_version['cmd_infor'].split(":")[1].lstrip()
 
-    sn = constants.sn
+    sn = str(Servers.objects.order_by("-submission_date")[0])
+    print(sn)
     mes_product_name = Fireware.objects.get(sn=sn)
     mes_product_name = str(mes_product_name)
     mes_fireware = Fireware.objects.values_list().get(sn=sn)
@@ -100,8 +102,7 @@ def cpu_checkout(request):
     core_number = int(h.run_cmd(cmd)['cmd_infor'].split(":")[0])
     cmd = "grep 'processor' /proc/cpuinfo | sort -u | wc -l"
     thread_number = int(h.run_cmd(cmd)['cmd_infor'].split(":")[0])
-
-    sn = constants.sn
+    sn = str(Servers.objects.order_by("-submission_date")[0])
     mes_cpu = Cpu.objects.values_list().get(sn=sn)
     if cpu_type == mes_cpu[3]:
         checkout_type = {"cpu_type": cpu_type, "mes_cpu_type": mes_cpu[3], "status": "pass"}

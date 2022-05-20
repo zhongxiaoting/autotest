@@ -1,0 +1,44 @@
+========= Data Disk NO.2 Read And Write Begin  2022-05-21 03:02:22 ==========
+mytest_2: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_2: (groupid=0, jobs=10): err= 0: pid=118673: Sat May 21 03:02:54 2022
+   read: IOPS=4, BW=78.6KiB/s (80.4kB/s)(2432KiB/30956msec)
+    clat (msec): min=243, max=1246, avg=914.54, stdev=167.22
+     lat (msec): min=243, max=1246, avg=914.54, stdev=167.22
+    clat percentiles (msec):
+     |  1.00th=[  245],  5.00th=[  718], 10.00th=[  726], 20.00th=[  743],
+     | 30.00th=[  961], 40.00th=[  969], 50.00th=[  969], 60.00th=[  969],
+     | 70.00th=[  978], 80.00th=[  986], 90.00th=[  995], 95.00th=[ 1167],
+     | 99.00th=[ 1250], 99.50th=[ 1250], 99.90th=[ 1250], 99.95th=[ 1250],
+     | 99.99th=[ 1250]
+   bw (  KiB/s): min=   31, max=   32, per=41.01%, avg=31.99, stdev= 0.12, samples=149
+   iops        : min=    1, max=    2, avg= 1.99, stdev= 0.12, samples=149
+  write: IOPS=5, BW=95.1KiB/s (97.4kB/s)(2944KiB/30956msec)
+    clat (msec): min=243, max=1246, avg=884.47, stdev=198.64
+     lat (msec): min=243, max=1246, avg=884.47, stdev=198.64
+    clat percentiles (msec):
+     |  1.00th=[  245],  5.00th=[  405], 10.00th=[  718], 20.00th=[  726],
+     | 30.00th=[  953], 40.00th=[  961], 50.00th=[  969], 60.00th=[  969],
+     | 70.00th=[  969], 80.00th=[  969], 90.00th=[  986], 95.00th=[ 1167],
+     | 99.00th=[ 1200], 99.50th=[ 1250], 99.90th=[ 1250], 99.95th=[ 1250],
+     | 99.99th=[ 1250]
+   bw (  KiB/s): min=   31, max=   32, per=33.67%, avg=31.99, stdev= 0.11, samples=177
+   iops        : min=    1, max=    2, avg= 1.99, stdev= 0.11, samples=177
+  lat (msec)   : 250=2.98%, 500=2.68%, 750=20.54%, 1000=65.18%
+  cpu          : usr=0.00%, sys=0.00%, ctx=384, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=152,184,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=78.6KiB/s (80.4kB/s), 78.6KiB/s-78.6KiB/s (80.4kB/s-80.4kB/s), io=2432KiB (2490kB), run=30956-30956msec
+  WRITE: bw=95.1KiB/s (97.4kB/s), 95.1KiB/s-95.1KiB/s (97.4kB/s-97.4kB/s), io=2944KiB (3015kB), run=30956-30956msec
+
+Disk stats (read/write):
+  sdc: ios=153/181, merge=0/0, ticks=139786/159858, in_queue=302876, util=98.34%
+======================== Data disk NO.2 End =========================

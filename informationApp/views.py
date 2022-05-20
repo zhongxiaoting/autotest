@@ -9,7 +9,7 @@ import json
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
-from common import constants as c
+from common import constants as c, operation as on
 from utils import handle as h
 
 # Create your views here.
@@ -76,6 +76,7 @@ def cpu_mce_errors(mce_errors):
 
 @api_view(['GET'])
 def cpu_info(request):
+    on.remove_log(c.INFOR_LOG_PATH)
     cpu_list = []
     cmd = 'cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l'
     cpu_number = h.run_cmd(cmd)
@@ -150,8 +151,8 @@ def memory_info(request):
     memory_list = []
     cmd = 'dmidecode -t memory | grep -A 11 -B 5 "Size:.*GB" | grep \'Size:.*GB\' | wc -l '
     mem_number = h.run_cmd(cmd)
-    write_log2('------------ The memory physical number have %s ------------' % mem_number['cmd_infor'])
-    write_log2('------------ mem info come ------------')
+    write_log('------------ The memory physical number have %s ------------' % mem_number['cmd_infor'])
+    write_log('------------ mem info come ------------')
     cmd = 'dmidecode -t 17 |grep -i "handle " |awk -F " " \'{print $2}\'|tr -d ","'
     handle = h.run_cmd(cmd)
 
@@ -159,21 +160,21 @@ def memory_info(request):
         memory_dir = {}
         cmd = 'dmidecode -H %s |grep -i "Locator: "|head -n 1' % i
         get_mem = h.run_cmd(cmd)
-        write_log2(get_mem['cmd_infor'])
+        write_log(get_mem['cmd_infor'])
 
         cmd = 'dmidecode -H %s |grep -i "Manufacturer:"' % i
         get_mem_mandufact = h.run_cmd(cmd)
-        write_log2(get_mem_mandufact['cmd_infor'])
+        write_log(get_mem_mandufact['cmd_infor'])
         cmd = 'dmidecode -H %s |grep -i "Speed:"|head -n 1' % i
         get_mem_speed = h.run_cmd(cmd)
-        write_log2(get_mem_speed['cmd_infor'])
+        write_log(get_mem_speed['cmd_infor'])
         cmd = 'dmidecode -H %s |grep -i "Serial Number:"' % i
         get_mem_SN = h.run_cmd(cmd)
-        write_log2(get_mem_SN['cmd_infor'])
+        write_log(get_mem_SN['cmd_infor'])
         cmd = 'dmidecode -H %s |grep -i "Part Number:"' % i
         get_mem_PN = h.run_cmd(cmd)
-        write_log2(get_mem_PN['cmd_infor'])
-        write_log2('------------ The memory is ok next is coming ------------')
+        write_log(get_mem_PN['cmd_infor'])
+        write_log('------------ The memory is ok next is coming ------------')
         memory_dir['mem_slot'] = get_mem['cmd_infor'].split(":")[1]
         memory_dir['mem_manufacturer'] = get_mem_mandufact['cmd_infor'].split(":")[1]
         memory_dir['mem_speed'] = get_mem_speed['cmd_infor'].split(":")[1]
@@ -298,6 +299,7 @@ def hdd_info_check(request):
 
 @api_view(['GET'])
 def network_info_check(request):
+    on.remove_log(c.Network_info)
     network_list = []
     cmd = 'lspci |grep -i "eth" |awk -F " " \'{$1 ="";print}\' | uniq |wc -l'
     cmd_network_count = h.run_cmd(cmd)
@@ -350,12 +352,12 @@ def write_log1(s):
         os.fsync(f)
 
 
-def write_log2(s):
-    with open(c.memory_info, 'a+') as f:
-        # print(s)
-        f.write(str(s) + '\n')
-        f.flush()
-        os.fsync(f)
+# def write_log2(s):
+#     with open(c.memory_info, 'a+') as f:
+#         # print(s)
+#         f.write(str(s) + '\n')
+#         f.flush()
+#         os.fsync(f)
 
 
 def get_local_time_string():

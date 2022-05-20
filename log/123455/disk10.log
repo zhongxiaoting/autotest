@@ -1,0 +1,44 @@
+========= Data Disk NO.10 Read And Write Begin  2022-05-21 03:02:22 ==========
+mytest_10: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_10: (groupid=0, jobs=10): err= 0: pid=118753: Sat May 21 03:02:54 2022
+   read: IOPS=4, BW=77.3KiB/s (79.2kB/s)(2368KiB/30625msec)
+    clat (msec): min=496, max=1182, avg=917.45, stdev=110.74
+     lat (msec): min=496, max=1182, avg=917.45, stdev=110.74
+    clat percentiles (msec):
+     |  1.00th=[  709],  5.00th=[  726], 10.00th=[  726], 20.00th=[  751],
+     | 30.00th=[  961], 40.00th=[  961], 50.00th=[  969], 60.00th=[  969],
+     | 70.00th=[  969], 80.00th=[  986], 90.00th=[  986], 95.00th=[  995],
+     | 99.00th=[ 1167], 99.50th=[ 1183], 99.90th=[ 1183], 99.95th=[ 1183],
+     | 99.99th=[ 1183]
+   bw (  KiB/s): min=   31, max=   32, per=41.54%, avg=31.99, stdev= 0.12, samples=144
+   iops        : min=    1, max=    2, avg= 1.99, stdev= 0.12, samples=144
+  write: IOPS=5, BW=94.0KiB/s (96.3kB/s)(2880KiB/30625msec)
+    clat (msec): min=485, max=1203, avg=906.81, stdev=134.05
+     lat (msec): min=485, max=1203, avg=906.81, stdev=134.05
+    clat percentiles (msec):
+     |  1.00th=[  485],  5.00th=[  718], 10.00th=[  726], 20.00th=[  735],
+     | 30.00th=[  961], 40.00th=[  961], 50.00th=[  969], 60.00th=[  969],
+     | 70.00th=[  969], 80.00th=[  969], 90.00th=[  969], 95.00th=[ 1020],
+     | 99.00th=[ 1167], 99.50th=[ 1200], 99.90th=[ 1200], 99.95th=[ 1200],
+     | 99.99th=[ 1200]
+   bw (  KiB/s): min=   32, max=   32, per=34.04%, avg=32.00, stdev= 0.00, samples=174
+   iops        : min=    2, max=    2, avg= 2.00, stdev= 0.00, samples=174
+  lat (msec)   : 500=2.13%, 750=20.43%, 1000=72.26%
+  cpu          : usr=0.00%, sys=0.01%, ctx=368, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=148,180,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=77.3KiB/s (79.2kB/s), 77.3KiB/s-77.3KiB/s (79.2kB/s-79.2kB/s), io=2368KiB (2425kB), run=30625-30625msec
+  WRITE: bw=94.0KiB/s (96.3kB/s), 94.0KiB/s-94.0KiB/s (96.3kB/s-96.3kB/s), io=2880KiB (2949kB), run=30625-30625msec
+
+Disk stats (read/write):
+  sdk: ios=148/176, merge=0/0, ticks=135816/160344, in_queue=298720, util=98.16%
+======================== Data disk NO.10 End =========================

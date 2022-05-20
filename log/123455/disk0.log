@@ -1,0 +1,79 @@
+=========== Disks Read and Write Check  2022-05-21 03:01:41 ===============
+
+===================== Building Raid =============================
+================ Build Raid Success, Information ====================
+/home/autotest
+CLI Version = 007.1912.0000.0000 Nov 23, 2021
+Operating system = Linux 3.10.0-1160.el7.x86_64
+Controller = 0
+Status = Success
+Description = Add VD Succeeded.
+
+
+NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda           8:0    0 446.6G  0 disk 
+sdb           8:16   0 446.6G  0 disk 
+sdc           8:32   0  10.9T  0 disk 
+sdd           8:48   0  10.9T  0 disk 
+sde           8:64   0  10.9T  0 disk 
+sdf           8:80   0  10.9T  0 disk 
+sdg           8:96   0  10.9T  0 disk 
+sdh           8:112  0  10.9T  0 disk 
+sdi           8:128  0  10.9T  0 disk 
+sdj           8:144  0  10.9T  0 disk 
+sdk           8:160  0  10.9T  0 disk 
+sdl           8:176  0  10.9T  0 disk 
+nvme0n1     259:0    0   1.5T  0 disk 
+├─nvme0n1p1 259:2    0     1G  0 part /boot
+├─nvme0n1p2 259:3    0     8G  0 part [SWAP]
+└─nvme0n1p3 259:4    0   100G  0 part /
+nvme1n1     259:1    0   1.5T  0 disk 
+==================================================================
+->>> System Disk is : nvme0n1
+->>> Tatol Non-system Disks: 13
+->>> Non-system Disks is : 
+['/dev/sda', '/dev/sdb', '/dev/sdc', '/dev/sdd', '/dev/sde', '/dev/sdf', '/dev/sdg', '/dev/sdh', '/dev/sdi', '/dev/sdj', '/dev/sdk', '/dev/sdl', '/dev/nvme1n1']
+========= Data Disk NO.0 Read And Write Begin  2022-05-21 03:02:22 ==========
+mytest_0: (g=0): rw=randrw, bs=(R) 16.0KiB-16.0KiB, (W) 16.0KiB-16.0KiB, (T) 16.0KiB-16.0KiB, ioengine=psync, iodepth=1
+...
+fio-3.7
+Starting 10 threads
+
+mytest_0: (groupid=0, jobs=10): err= 0: pid=118596: Sat May 21 03:02:53 2022
+   read: IOPS=4, BW=75.0KiB/s (77.8kB/s)(2336KiB/30745msec)
+    clat (msec): min=485, max=1171, avg=831.20, stdev=145.08
+     lat (msec): min=485, max=1171, avg=831.20, stdev=145.08
+    clat percentiles (msec):
+     |  1.00th=[  485],  5.00th=[  726], 10.00th=[  726], 20.00th=[  726],
+     | 30.00th=[  726], 40.00th=[  726], 50.00th=[  735], 60.00th=[  969],
+     | 70.00th=[  969], 80.00th=[  969], 90.00th=[  969], 95.00th=[  978],
+     | 99.00th=[ 1167], 99.50th=[ 1167], 99.90th=[ 1167], 99.95th=[ 1167],
+     | 99.99th=[ 1167]
+   bw (  KiB/s): min=   31, max=   32, per=42.61%, avg=31.96, stdev= 0.20, samples=142
+   iops        : min=    1, max=    2, avg= 1.96, stdev= 0.20, samples=142
+  write: IOPS=5, BW=88.0KiB/s (91.1kB/s)(2736KiB/30745msec)
+    clat (msec): min=485, max=1171, avg=858.93, stdev=145.22
+     lat (msec): min=485, max=1171, avg=858.93, stdev=145.22
+    clat percentiles (msec):
+     |  1.00th=[  485],  5.00th=[  726], 10.00th=[  726], 20.00th=[  726],
+     | 30.00th=[  726], 40.00th=[  735], 50.00th=[  961], 60.00th=[  969],
+     | 70.00th=[  969], 80.00th=[  969], 90.00th=[  969], 95.00th=[  995],
+     | 99.00th=[ 1167], 99.50th=[ 1167], 99.90th=[ 1167], 99.95th=[ 1167],
+     | 99.99th=[ 1167]
+   bw (  KiB/s): min=   31, max=   32, per=36.34%, avg=31.98, stdev= 0.15, samples=165
+   iops        : min=    1, max=    2, avg= 1.98, stdev= 0.15, samples=165
+  lat (msec)   : 500=3.15%, 750=47.00%, 1000=46.69%
+  cpu          : usr=0.00%, sys=0.01%, ctx=373, majf=0, minf=18
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=146,171,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=75.0KiB/s (77.8kB/s), 75.0KiB/s-75.0KiB/s (77.8kB/s-77.8kB/s), io=2336KiB (2392kB), run=30745-30745msec
+  WRITE: bw=88.0KiB/s (91.1kB/s), 88.0KiB/s-88.0KiB/s (91.1kB/s-91.1kB/s), io=2736KiB (2802kB), run=30745-30745msec
+
+Disk stats (read/write):
+  sda: ios=179/170, merge=0/0, ticks=152733/145926, in_queue=302317, util=92.83%
+======================== Data disk NO.0 End =========================
