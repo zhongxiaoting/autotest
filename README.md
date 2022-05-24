@@ -15,6 +15,7 @@
     我写了几篇博客如何利用FastDFS技术上传、下载文件：
     1）docker搭建FastDFS及遇到的问题解决：https://blog.csdn.net/qq_45758854/article/details/124704320
     2）FastDFS下载文件自定义命名：https://blog.csdn.net/qq_45758854/article/details/124726359
+6、前端代码：https://github.com/zhongxiaoting/autotest_vue
 
 ## 系统页面效果
 ![image](https://user-images.githubusercontent.com/49242954/169977723-a99ae52d-4e3d-4b6f-b4ea-ba79637809d9.png)
