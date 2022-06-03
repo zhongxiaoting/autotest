@@ -4,18 +4,19 @@
 ## 用户使用手册
 1、将后端部署到服务器上，前端部署到服务器或者本机都可以
 2、直接下载库包：pip install -r requirements.txt
-3、创建用户之后登录用户测试
-4、输入服务器的序列号之后可以对服务器进行测试，
+3、直接运行系统：python manage.py runserver 0.0.0.0:8000
+4、创建用户之后登录用户测试
+5、输入服务器的序列号之后可以对服务器进行测试，
     4.1 测试项包括：服务器的基本信息查询、信息校验、性能测试、一键自动化测试
     4.2 基本信息查询包括：CPU信息查询、内存信息查询、硬盘信息查询、网卡信息查询
     4.3 信息校验包括：系统信息校验、CPU信息校验、内存信息校验、硬盘信息校验
     4.4 性能查询包括：CPU MCE检查、内存CEE检查、CPU压力测试、内存压力测试、硬盘压力测试、网卡压力测试
     4.5 黑名单检查包括：PCIE检查、网口误码率检查、硬盘读写检查等项
-5、一键自动化测试是从头到尾进行信息检验、性能测试、黑名单检查，测试通过之后可以将日志上传到远程文件服务器存储，以方便文件上传、下载，
+6、一键自动化测试是从头到尾进行信息检验、性能测试、黑名单检查，测试通过之后可以将日志上传到远程文件服务器存储，以方便文件上传、下载，
     我写了几篇博客如何利用FastDFS技术上传、下载文件：
     1）docker搭建FastDFS及遇到的问题解决：https://blog.csdn.net/qq_45758854/article/details/124704320
     2）FastDFS下载文件自定义命名：https://blog.csdn.net/qq_45758854/article/details/124726359
-6、前端代码：https://github.com/zhongxiaoting/autotest_vue
+7、前端代码：https://github.com/zhongxiaoting/autotest_vue
 
 ## 系统页面效果
 ![image](https://user-images.githubusercontent.com/49242954/169977723-a99ae52d-4e3d-4b6f-b4ea-ba79637809d9.png)
